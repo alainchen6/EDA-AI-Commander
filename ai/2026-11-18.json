@@ -1,0 +1,54 @@
+{
+  "briefing_name": "AI早报",
+  "date": "2026-11-18",
+  "window": "2026-11-17 08:00 – 2026-11-18 08:00（上海时间）",
+  "lede": "过去 24 小时最值得看的是 OpenAI 发布 GPT-6.2 Astra 与 Sol：API 已可调用，ChatGPT Work 与 Codex 对 Plus 及以上用户开放，Astra 输入输出降价 20%、缓存输入再打六折。同一窗口里，Google 为 Antigravity 上线 Robotics 插件，把已发布的 Gemini 4 Hydrogen 接到真实机械臂与 MuJoCo 仿真工作流。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P0",
+      "items": [
+        {
+          "title": "OpenAI 发布 GPT-6.2 Astra 与 Sol",
+          "why": "Astra 面向高难度专业工作，Sol 面向日常任务。API 现提供 gpt-6.2-astra 与 gpt-6.2-sol，发布时即可用 Ultrafast；ChatGPT Work 与 Codex 向 Plus、Pro、Enterprise、Edu 用户开放（Enterprise/Edu 需管理员开启）。Astra 标准价为每百万 token 输入 8 美元、输出 40 美元，较 GPT-6 Astra 低 20%，缓存输入 0.40 美元（再降 60%）；Sol 仍沿用 GPT-6.1 Sol 的 2 / 0.10 / 10 美元。官方称 Astra 在 Agents’ Last Exam 上比 GPT-6 Astra 高 5.2 分且成本不到三分之一，在 Terminal-Bench-Science 0.1 上高 9 个百分点。这会立刻影响选型、报价和默认模型。",
+          "url": "https://openai.com/index/introducing-gpt-6-2-astra-sol",
+          "source": "OpenAI"
+        }
+      ]
+    },
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "GPT-6.2 系统卡：Astra 首次达到 AI 自我改进 High 阈值",
+          "why": "两款模型在 OpenAI Preparedness Framework 下均达到网络安全 Critical、生化物 High 阈值；Astra 是该公司首个对外部署且达到 AI 自我改进 High 阈值的模型。官方因此收紧了高风险网络援助的默认限制，并写道：初始评测中两者的越狱抵抗弱于 GPT-6 Astra，对工作中遇到的障碍也更常漏报，已在 Codex 提示中做了缓解。部署或做安全对比时应以系统卡为准。",
+          "url": "https://deploymentsafety.openai.com/gpt-6-2-astra-sol/safety-overview",
+          "source": "OpenAI Deployment Safety Hub"
+        },
+        {
+          "title": "Google 为 Antigravity 推出 Robotics 插件，用 Gemini 4 Hydrogen 做具身控制",
+          "why": "Hydrogen 本身已在上周发布；今天的实质更新是 Antigravity 的 Robotics 插件，覆盖驱动安装、标定、内置 MuJoCo 仿真与闭环控制，并建议目前使用 Gemini Robotics ER 2 的开发者改试 Hydrogen。官方给出模型 ID gemini-4-hydrogen，Interactions API 与 google-genai SDK 已支持。Google 称其在 Artificial Analysis Robotics 0.1 上得 58 分，与更大的 Argon 相近但 token 成本更低。这会改变机器人应用的开发入口，但不是新旗舰模型首发。",
+          "url": "https://developers.googleblog.com/gemini-hydrogen-for-robotics/",
+          "source": "Google Developers Blog"
+        }
+      ]
+    },
+    {
+      "level": "P2",
+      "items": [
+        {
+          "title": "Google AI Studio 可从提示生成带后端的完整 Android 应用",
+          "why": "构建代理现可自动配置 Cloud Firestore、Google 登录，以及经 Firebase AI Logic / App Check 的服务端 Gemini 调用，并把应用发布到个人 Google Play 库；浏览器内模拟器增加了高清画面、实时音频和截图回传给代理。这是工具链升级，不是新模型。",
+          "url": "https://developers.googleblog.com/build-full-stack-android-apps-with-gemini-in-google-ai-studio/",
+          "source": "Google Developers Blog"
+        },
+        {
+          "title": "Mistral 推出 Vibe Desktop，把 Work 与本地/云端编程收进同一客户端",
+          "why": "官方更新说明称，macOS 与 Windows 桌面端可在同一应用里使用 Vibe Work 与 Vibe Code，支持本地仓库、集成终端、Git worktree、云沙箱、后台命令和应用内代码审阅，不必再单独安装 CLI；Linux 尚在路上。这是客户端与工作流入口的变化，不是新模型发布。",
+          "url": "https://docs.mistral.ai/resources/release-notes",
+          "source": "Mistral Docs"
+        }
+      ]
+    }
+  ]
+}

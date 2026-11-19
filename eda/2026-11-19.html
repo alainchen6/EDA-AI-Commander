@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDA早报 · 2026-11-19</title>
+  <style>
+    :root {
+      --bg: #efebe3;
+      --paper: #fffcf7;
+      --ink: #1b1814;
+      --muted: #6d675c;
+      --line: #e4ddd0;
+      --accent: #9c3b16;
+      --p0: #9c3b16;
+      --p0-bg: #f8ebe4;
+      --p1: #215246;
+      --p1-bg: #e7f0ec;
+      --p2: #5c574e;
+      --p2-bg: #eeebe4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      max-width: 720px;
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 40px 40px 32px;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(27, 24, 20, 0.04), 0 12px 32px rgba(27, 24, 20, 0.06);
+    }
+    header.mast {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      margin: 0 0 8px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .lede {
+      margin: 0 0 32px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    section.group { margin: 0 0 32px; }
+    section.group h2 {
+      margin: 0 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+    }
+    .pill.p0 { color: var(--p0); background: var(--p0-bg); }
+    .pill.p1 { color: var(--p1); background: var(--p1-bg); }
+    .pill.p2 { color: var(--p2); background: var(--p2-bg); }
+    ol.items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ol.items li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    ol.items li:last-child { padding-bottom: 0; }
+    ol.items h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    ol.items h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    ol.items h3 a:hover { color: var(--accent); }
+    .why { margin: 0 0 8px; color: var(--ink); }
+    .src { margin: 0; font-size: 13px; }
+    .src a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .empty {
+      padding: 20px 0 8px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .source-updates {
+      margin: 8px 0 28px;
+      padding: 14px 16px;
+      background: #f3efe6;
+      border-left: 3px solid var(--ink);
+      font-size: 14px;
+    }
+    .source-updates .label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    footer.colophon {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 640px) {
+      .sheet { margin: 0; padding: 28px 20px 24px; border-radius: 0; box-shadow: none; }
+      h1 { font-size: 24px; }
+      .lede { font-size: 17px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header class="mast">
+      <p class="kicker">工作日早报</p>
+      <h1>EDA早报</h1>
+      <p class="meta">2026年11月19日 星期四 · 2026-11-18 08:00 – 2026-11-19 08:00（上海时间）</p>
+    </header>
+    <p class="lede">过去 24 小时最值得看的是 OpenAI 官方发布的芯片设计进展：模型改写 SystemVerilog RTL，经 Synopsys 工具做行为保持与 PPA 评估后，在 AMD 旗舰 GPU IP 的已优化基线上最高提升约 14%，部分改写已进入流片，并与 Synopsys 合作训练 GPT-Synopsys。同一窗口的 arXiv 周三批次里，还有 RTL 审查基准、面向智能体流程的模拟电路尺寸优化，以及可扩展的 RTL 缺陷合成方法。</p>
+<section class="group"><h2><span class="pill p0">P0 必读</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://openai.com/index/advancing-chip-design-with-our-models/">Advancing chip design with OpenAI models</a></h3>
+<p class="why">OpenAI 用模型改写 SystemVerilog RTL，并用 Synopsys 工具验证改写后行为保持、评估 PPA。已硅验证的 Jalapeño 上，模型提议的改写使 vector unit 与 matrix unit 的标准单元面积分别约降 13% 和 10%；与 AMD 合作，在其旗舰 GPU IP 的已优化基线上最高提升约 14% PPA，部分改写已进入近期流片，下一代旗舰 CPU 关键模块亦有个位数百分比增益。文中还用 Yosys 在 PicoRV32 与 OpenTitan Ibex 上比较各代模型的吞吐优化及从规格设计核心的能力，并称正与 Synopsys 合作训练 GPT-Synopsys，使其按专家方式调用 EDA 工具。</p>
+<p class="src"><a href="https://openai.com/index/advancing-chip-design-with-our-models/">OpenAI</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p1">P1 建议看</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://arxiv.org/abs/2611.21678">RTLReviewBench: LLM Hardware Reviewers Rarely Miss Bugs but Routinely Reject Correct RTL</a></h3>
+<p class="why">开源基准包含 114 对共享规格的错误/正确 Verilog 模块，标签均经仿真确认，用于衡量不跑仿真时 LLM 作为 RTL 审查器的双向可靠性。12 个商业与开源权重模型的结果呈不对称：很少放行有 bug 的代码，却经常拒绝正确模块，误拒与漏检之比超过 5:1；在同一设计上，合成变异比真实生成失败更容易被抓住。先推理再给出结论可明显降低较弱模型的误拒，采样与多数投票则无帮助。基准、更难划分、全部模型回复与评估代码在 https://github.com/yasirmahmud/RTLReviewBench。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.21678">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.22328">PVTSizing 2.0: A Fast and Reliable Analog Circuit Sizing Operator for Agentic EDA Workflows</a></h3>
+<p class="why">面向人机协同的智能体流程，把可独立调用的数值优化器作为核心：用损失引导更新减少无效训练，并以 critic 引导的局部 refinement 处理跨 PVT corner 冲突；可选的 LLM 顾问只提供参数关系，步长与效果仍由优化器经仿真确认。独立优化器在 4 个电路共 40 次运行中全部完成，相对原 PVTSizing 总体平均运行时间加速 7.3 倍、平均采样数相当；最佳知识注入配置相对独立优化器再降 39.9% 平均运行时间和 35.4% 仿真采样。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.22328">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.23091">BugGen 2.0: Rethinking the Roles of LLMs for Scalable RTL Bug Synthesis</a></h3>
+<p class="why">把 RTL 缺陷数据集的构造拆成算法与模型分工：结构分析、注入位点选择和合法性检查由确定性算法完成，LLM 只做局部语义改写。在 4 个 OpenTitan IP 与 FabScalar、三种 LLM 上，均达到“可编译且至少导致两次测试失败”的配额，16 类变异中覆盖 14–16 类；相对 BugGen 1.0 节省 6.8–15.4 倍 token，相对 Firefly 节省 1.5–7.9 倍。接受场景后可在同一位点生成变体，只仿真子集并估计其余，AES 与 FabScalar 分别跳过 63.6% 和 33.9% 的变体仿真，直接可比集合上的估计误差为 1.09%。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.23091">arXiv</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p2">P2 知晓即可</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://arxiv.org/abs/2506.17247">Recursive Learning-Based Virtual Buffering for Analytical Global Placement（v3 修订）</a></h3>
+<p class="why">MLBuf-RePlAce 的 2026 年 11 月修订版：修正已发布集成中的单位换算问题，换用重训的 MLBuf v2，并重跑全部实验，宣告取代 MLCAD 2025 版结果。该开源框架在 OpenROAD 上用学习式虚拟缓冲做可感知 ERC 的解析全局布局。修订后的摘要给出：在开源 OpenROAD 流程中，后仿真功耗不恶化的前提下，TNS 最大/平均改善 49%/24%，WNS 为 38%/19%；在商业流程、放宽时序约束时 TNS 最大/平均改善 83%/69%。代码在 https://github.com/ABKGroup/MLBuf_MLCAD。</p>
+<p class="src"><a href="https://arxiv.org/abs/2506.17247">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.22411">KD-DSE: A Knowledge-Driven LLM Framework for Fast Microarchitecture Design Space Exploration</a></h3>
+<p class="why">用五状态约束智能体结合真实 gem5-McPAT 评估，按当前搜索状态与瓶颈诊断从架构知识库检索指导，并以诊断驱动的两阶段策略分配仿真预算。在 29 参数乱序核、仅 18 次仿真的预算下，相对 MicroEvo 超体积约高 4.8%、ADRS 约低 21.7%，消融将收益主要归因于知识库。4 页短文，代码计划在录用后开源。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.22411">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.21679">FCP: Formal Context Protocol for Verifying LLM-Generated Artifacts</a></h3>
+<p class="why">针对模型既写产物又写检查所造成的循环认证，把符合性（模型检查器/SMT 判定产物是否满足需求的形式解读）与保真度（该解读是否等于原文，可用反例反驳）分开，并为八类虚假证明提供可返回证据的机械检查。硬件、文本、智能体与代码共用同一引擎。在 4 个硬件设计上，采信 AI 自写断言会认证 23% 的被违反需求，FCP 一个都不认证。代码与数据在 https://github.com/shankch/FCP_oss。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.21679">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.21954">ThermLeT: Transformer-based Temperature Prediction for 2.5D Chiplet Architecture</a></h3>
+<p class="why">已发表于 VLSID 2026 的多模态 Transformer 热仿真代理，输入功率密度图、坐标、材料与传热率，13 ms 给出稳态温度，较 ANSYS 一类有限元求解快约四个数量级。在 150 个测试样本上 RMSE 3.16°C、MAE 2.24°C，精度相对 ThermEDGe 和 HotSpot 分别提升 35% 与 71%。代码与 6,221 个 chiplet 布局数据集在 https://github.com/MicroSystemsDesignLab/ThermLeT。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.21954">arXiv</a></p>
+</li>
+</ol>
+</section>
+<aside class="source-updates"><span class="label">信源变更</span>今日起把 OpenAI 官方站点 https://openai.com/index/ 列入日常扫描，因其发布了带实验数据、并涉及用 Synopsys EDA 工具验证 RTL 改写的芯片设计技术文章。</aside>
+    <footer class="colophon">共用模板 v1 · 请勿改版 · 生成于 2026-11-19 08:13（上海时间）</footer>
+  </article>
+</body>
+</html>

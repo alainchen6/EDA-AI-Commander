@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDA早报 · 2026-11-18</title>
+  <style>
+    :root {
+      --bg: #efebe3;
+      --paper: #fffcf7;
+      --ink: #1b1814;
+      --muted: #6d675c;
+      --line: #e4ddd0;
+      --accent: #9c3b16;
+      --p0: #9c3b16;
+      --p0-bg: #f8ebe4;
+      --p1: #215246;
+      --p1-bg: #e7f0ec;
+      --p2: #5c574e;
+      --p2-bg: #eeebe4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      max-width: 720px;
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 40px 40px 32px;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(27, 24, 20, 0.04), 0 12px 32px rgba(27, 24, 20, 0.06);
+    }
+    header.mast {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      margin: 0 0 8px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .lede {
+      margin: 0 0 32px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    section.group { margin: 0 0 32px; }
+    section.group h2 {
+      margin: 0 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+    }
+    .pill.p0 { color: var(--p0); background: var(--p0-bg); }
+    .pill.p1 { color: var(--p1); background: var(--p1-bg); }
+    .pill.p2 { color: var(--p2); background: var(--p2-bg); }
+    ol.items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ol.items li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    ol.items li:last-child { padding-bottom: 0; }
+    ol.items h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    ol.items h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    ol.items h3 a:hover { color: var(--accent); }
+    .why { margin: 0 0 8px; color: var(--ink); }
+    .src { margin: 0; font-size: 13px; }
+    .src a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .empty {
+      padding: 20px 0 8px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .source-updates {
+      margin: 8px 0 28px;
+      padding: 14px 16px;
+      background: #f3efe6;
+      border-left: 3px solid var(--ink);
+      font-size: 14px;
+    }
+    .source-updates .label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    footer.colophon {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 640px) {
+      .sheet { margin: 0; padding: 28px 20px 24px; border-radius: 0; box-shadow: none; }
+      h1 { font-size: 24px; }
+      .lede { font-size: 17px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header class="mast">
+      <p class="kicker">工作日早报</p>
+      <h1>EDA早报</h1>
+      <p class="meta">2026年11月18日 星期三 · 2026-11-17 08:00 – 2026-11-18 08:00（上海时间）</p>
+    </header>
+    <p class="lede">过去 24 小时，值得看的进展集中在 arXiv 周二批次的两篇论文：一篇用执行回读说明 EDA 脚本智能体的瓶颈在观察保真度而非模型规模，并已进入生产流程；另一篇开源了用 LLM 自动推导模拟电路性能方程、加速晶体管尺寸优化的框架。厂商与主要开源仓库没有同等分量的新发布。</p>
+<section class="group"><h2><span class="pill p0">P0 必读</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://arxiv.org/abs/2611.19056">Run, Read Back, Refine: Observation Fidelity in Execution-Grounded EDA Agents</a></h3>
+<p class="why">面向 PyAether、SKILL、Tcl 的执行闭环 LLM 智能体，用统一 MCP 工具做 API 检索、文档查询和沙箱回读，并称已部署进生产 EDA 流程。在 EDA-Scripting-Bench（449 题、四种商业运行时）上，系统 Pass@1 为 76.5%，纯模型仅 19.7%；固定模型时，观察保真度这一轴可拉开 56.8 个百分点，大于更换模型主干的 23.3 个百分点。核心判断是：EDA 脚本正确性的瓶颈在 situated 层的观察，而不是继续扩大模型。投稿面向 DAC 2027。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.19056">arXiv</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p1">P1 建议看</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://arxiv.org/abs/2611.18995">NEMESIS2.0: LLM-Aided Netlist-Driven Performance Equation Modeling for Accelerated Analog Circuit Sizing</a></h3>
+<p class="why">开源框架用 LLM 从网表自动推导模拟电路性能方程，作为 SPICE 的快速代理。在商业 65nm 的 7 个电路、1000 组未见尺寸上，方程误差落在 SPICE 的 5% 以内；作为种群优化器的评估器时约 400 个候选/秒，相对 SPICE 的 0.14 个/秒，尺寸优化加上最终 SPICE 验证可加速 196–238 倍，100 组规格中 83.3% 一次跑完即全部达标。代码在 https://github.com/UMN-EDA/NEMESIS。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.18995">arXiv</a></p>
+</li>
+</ol>
+</section>
+<aside class="source-updates"><span class="label">信源变更</span>首期建立日常扫描名单：arXiv cs.AR/cs.LG/cs.AI/cs.SE、主流 EDA 厂商与 NVIDIA 官方新闻室、ChipNexus（原 Primis AI）与 ChipAgents、OpenROAD/LibreLane/Yosys/ABC/mockturtle/LSOracle/CIRCT 等仓库及 Hugging Face RTL 资源、Hacker News 与 r/FPGA、r/EDA。今天起把正在举行的 DVCon Europe（https://dvcon-europe.org/，2026-11-17 至 18 日于慕尼黑，程序含 Agentic AI for Chip Design 等议题）列入会议信源。</aside>
+    <footer class="colophon">共用模板 v1 · 请勿改版 · 生成于 2026-11-18 08:11（上海时间）</footer>
+  </article>
+</body>
+</html>

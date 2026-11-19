@@ -1,0 +1,32 @@
+{
+  "briefing_name": "EDA早报",
+  "date": "2026-11-18",
+  "window": "2026-11-17 08:00 – 2026-11-18 08:00（上海时间）",
+  "lede": "过去 24 小时，值得看的进展集中在 arXiv 周二批次的两篇论文：一篇用执行回读说明 EDA 脚本智能体的瓶颈在观察保真度而非模型规模，并已进入生产流程；另一篇开源了用 LLM 自动推导模拟电路性能方程、加速晶体管尺寸优化的框架。厂商与主要开源仓库没有同等分量的新发布。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P0",
+      "items": [
+        {
+          "title": "Run, Read Back, Refine: Observation Fidelity in Execution-Grounded EDA Agents",
+          "why": "面向 PyAether、SKILL、Tcl 的执行闭环 LLM 智能体，用统一 MCP 工具做 API 检索、文档查询和沙箱回读，并称已部署进生产 EDA 流程。在 EDA-Scripting-Bench（449 题、四种商业运行时）上，系统 Pass@1 为 76.5%，纯模型仅 19.7%；固定模型时，观察保真度这一轴可拉开 56.8 个百分点，大于更换模型主干的 23.3 个百分点。核心判断是：EDA 脚本正确性的瓶颈在 situated 层的观察，而不是继续扩大模型。投稿面向 DAC 2027。",
+          "url": "https://arxiv.org/abs/2611.19056",
+          "source": "arXiv"
+        }
+      ]
+    },
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "NEMESIS2.0: LLM-Aided Netlist-Driven Performance Equation Modeling for Accelerated Analog Circuit Sizing",
+          "why": "开源框架用 LLM 从网表自动推导模拟电路性能方程，作为 SPICE 的快速代理。在商业 65nm 的 7 个电路、1000 组未见尺寸上，方程误差落在 SPICE 的 5% 以内；作为种群优化器的评估器时约 400 个候选/秒，相对 SPICE 的 0.14 个/秒，尺寸优化加上最终 SPICE 验证可加速 196–238 倍，100 组规格中 83.3% 一次跑完即全部达标。代码在 https://github.com/UMN-EDA/NEMESIS。",
+          "url": "https://arxiv.org/abs/2611.18995",
+          "source": "arXiv"
+        }
+      ]
+    }
+  ],
+  "source_updates": "首期建立日常扫描名单：arXiv cs.AR/cs.LG/cs.AI/cs.SE、主流 EDA 厂商与 NVIDIA 官方新闻室、ChipNexus（原 Primis AI）与 ChipAgents、OpenROAD/LibreLane/Yosys/ABC/mockturtle/LSOracle/CIRCT 等仓库及 Hugging Face RTL 资源、Hacker News 与 r/FPGA、r/EDA。今天起把正在举行的 DVCon Europe（https://dvcon-europe.org/，2026-11-17 至 18 日于慕尼黑，程序含 Agentic AI for Chip Design 等议题）列入会议信源。"
+}

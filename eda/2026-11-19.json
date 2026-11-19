@@ -1,0 +1,73 @@
+{
+  "briefing_name": "EDA早报",
+  "date": "2026-11-19",
+  "window": "2026-11-18 08:00 – 2026-11-19 08:00（上海时间）",
+  "lede": "过去 24 小时最值得看的是 OpenAI 官方发布的芯片设计进展：模型改写 SystemVerilog RTL，经 Synopsys 工具做行为保持与 PPA 评估后，在 AMD 旗舰 GPU IP 的已优化基线上最高提升约 14%，部分改写已进入流片，并与 Synopsys 合作训练 GPT-Synopsys。同一窗口的 arXiv 周三批次里，还有 RTL 审查基准、面向智能体流程的模拟电路尺寸优化，以及可扩展的 RTL 缺陷合成方法。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P0",
+      "items": [
+        {
+          "title": "Advancing chip design with OpenAI models",
+          "why": "OpenAI 用模型改写 SystemVerilog RTL，并用 Synopsys 工具验证改写后行为保持、评估 PPA。已硅验证的 Jalapeño 上，模型提议的改写使 vector unit 与 matrix unit 的标准单元面积分别约降 13% 和 10%；与 AMD 合作，在其旗舰 GPU IP 的已优化基线上最高提升约 14% PPA，部分改写已进入近期流片，下一代旗舰 CPU 关键模块亦有个位数百分比增益。文中还用 Yosys 在 PicoRV32 与 OpenTitan Ibex 上比较各代模型的吞吐优化及从规格设计核心的能力，并称正与 Synopsys 合作训练 GPT-Synopsys，使其按专家方式调用 EDA 工具。",
+          "url": "https://openai.com/index/advancing-chip-design-with-our-models/",
+          "source": "OpenAI"
+        }
+      ]
+    },
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "RTLReviewBench: LLM Hardware Reviewers Rarely Miss Bugs but Routinely Reject Correct RTL",
+          "why": "开源基准包含 114 对共享规格的错误/正确 Verilog 模块，标签均经仿真确认，用于衡量不跑仿真时 LLM 作为 RTL 审查器的双向可靠性。12 个商业与开源权重模型的结果呈不对称：很少放行有 bug 的代码，却经常拒绝正确模块，误拒与漏检之比超过 5:1；在同一设计上，合成变异比真实生成失败更容易被抓住。先推理再给出结论可明显降低较弱模型的误拒，采样与多数投票则无帮助。基准、更难划分、全部模型回复与评估代码在 https://github.com/yasirmahmud/RTLReviewBench。",
+          "url": "https://arxiv.org/abs/2611.21678",
+          "source": "arXiv"
+        },
+        {
+          "title": "PVTSizing 2.0: A Fast and Reliable Analog Circuit Sizing Operator for Agentic EDA Workflows",
+          "why": "面向人机协同的智能体流程，把可独立调用的数值优化器作为核心：用损失引导更新减少无效训练，并以 critic 引导的局部 refinement 处理跨 PVT corner 冲突；可选的 LLM 顾问只提供参数关系，步长与效果仍由优化器经仿真确认。独立优化器在 4 个电路共 40 次运行中全部完成，相对原 PVTSizing 总体平均运行时间加速 7.3 倍、平均采样数相当；最佳知识注入配置相对独立优化器再降 39.9% 平均运行时间和 35.4% 仿真采样。",
+          "url": "https://arxiv.org/abs/2611.22328",
+          "source": "arXiv"
+        },
+        {
+          "title": "BugGen 2.0: Rethinking the Roles of LLMs for Scalable RTL Bug Synthesis",
+          "why": "把 RTL 缺陷数据集的构造拆成算法与模型分工：结构分析、注入位点选择和合法性检查由确定性算法完成，LLM 只做局部语义改写。在 4 个 OpenTitan IP 与 FabScalar、三种 LLM 上，均达到“可编译且至少导致两次测试失败”的配额，16 类变异中覆盖 14–16 类；相对 BugGen 1.0 节省 6.8–15.4 倍 token，相对 Firefly 节省 1.5–7.9 倍。接受场景后可在同一位点生成变体，只仿真子集并估计其余，AES 与 FabScalar 分别跳过 63.6% 和 33.9% 的变体仿真，直接可比集合上的估计误差为 1.09%。",
+          "url": "https://arxiv.org/abs/2611.23091",
+          "source": "arXiv"
+        }
+      ]
+    },
+    {
+      "level": "P2",
+      "items": [
+        {
+          "title": "Recursive Learning-Based Virtual Buffering for Analytical Global Placement（v3 修订）",
+          "why": "MLBuf-RePlAce 的 2026 年 11 月修订版：修正已发布集成中的单位换算问题，换用重训的 MLBuf v2，并重跑全部实验，宣告取代 MLCAD 2025 版结果。该开源框架在 OpenROAD 上用学习式虚拟缓冲做可感知 ERC 的解析全局布局。修订后的摘要给出：在开源 OpenROAD 流程中，后仿真功耗不恶化的前提下，TNS 最大/平均改善 49%/24%，WNS 为 38%/19%；在商业流程、放宽时序约束时 TNS 最大/平均改善 83%/69%。代码在 https://github.com/ABKGroup/MLBuf_MLCAD。",
+          "url": "https://arxiv.org/abs/2506.17247",
+          "source": "arXiv"
+        },
+        {
+          "title": "KD-DSE: A Knowledge-Driven LLM Framework for Fast Microarchitecture Design Space Exploration",
+          "why": "用五状态约束智能体结合真实 gem5-McPAT 评估，按当前搜索状态与瓶颈诊断从架构知识库检索指导，并以诊断驱动的两阶段策略分配仿真预算。在 29 参数乱序核、仅 18 次仿真的预算下，相对 MicroEvo 超体积约高 4.8%、ADRS 约低 21.7%，消融将收益主要归因于知识库。4 页短文，代码计划在录用后开源。",
+          "url": "https://arxiv.org/abs/2611.22411",
+          "source": "arXiv"
+        },
+        {
+          "title": "FCP: Formal Context Protocol for Verifying LLM-Generated Artifacts",
+          "why": "针对模型既写产物又写检查所造成的循环认证，把符合性（模型检查器/SMT 判定产物是否满足需求的形式解读）与保真度（该解读是否等于原文，可用反例反驳）分开，并为八类虚假证明提供可返回证据的机械检查。硬件、文本、智能体与代码共用同一引擎。在 4 个硬件设计上，采信 AI 自写断言会认证 23% 的被违反需求，FCP 一个都不认证。代码与数据在 https://github.com/shankch/FCP_oss。",
+          "url": "https://arxiv.org/abs/2611.21679",
+          "source": "arXiv"
+        },
+        {
+          "title": "ThermLeT: Transformer-based Temperature Prediction for 2.5D Chiplet Architecture",
+          "why": "已发表于 VLSID 2026 的多模态 Transformer 热仿真代理，输入功率密度图、坐标、材料与传热率，13 ms 给出稳态温度，较 ANSYS 一类有限元求解快约四个数量级。在 150 个测试样本上 RMSE 3.16°C、MAE 2.24°C，精度相对 ThermEDGe 和 HotSpot 分别提升 35% 与 71%。代码与 6,221 个 chiplet 布局数据集在 https://github.com/MicroSystemsDesignLab/ThermLeT。",
+          "url": "https://arxiv.org/abs/2611.21954",
+          "source": "arXiv"
+        }
+      ]
+    }
+  ],
+  "source_updates": "今日起把 OpenAI 官方站点 https://openai.com/index/ 列入日常扫描，因其发布了带实验数据、并涉及用 Synopsys EDA 工具验证 RTL 改写的芯片设计技术文章。"
+}
