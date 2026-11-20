@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDA早报 · 2026-11-20</title>
+  <style>
+    :root {
+      --bg: #efebe3;
+      --paper: #fffcf7;
+      --ink: #1b1814;
+      --muted: #6d675c;
+      --line: #e4ddd0;
+      --accent: #9c3b16;
+      --p0: #9c3b16;
+      --p0-bg: #f8ebe4;
+      --p1: #215246;
+      --p1-bg: #e7f0ec;
+      --p2: #5c574e;
+      --p2-bg: #eeebe4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      max-width: 720px;
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 40px 40px 32px;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(27, 24, 20, 0.04), 0 12px 32px rgba(27, 24, 20, 0.06);
+    }
+    header.mast {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      margin: 0 0 8px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .lede {
+      margin: 0 0 32px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    section.group { margin: 0 0 32px; }
+    section.group h2 {
+      margin: 0 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+    }
+    .pill.p0 { color: var(--p0); background: var(--p0-bg); }
+    .pill.p1 { color: var(--p1); background: var(--p1-bg); }
+    .pill.p2 { color: var(--p2); background: var(--p2-bg); }
+    ol.items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ol.items li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    ol.items li:last-child { padding-bottom: 0; }
+    ol.items h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    ol.items h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    ol.items h3 a:hover { color: var(--accent); }
+    .why { margin: 0 0 8px; color: var(--ink); }
+    .src { margin: 0; font-size: 13px; }
+    .src a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .empty {
+      padding: 20px 0 8px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .source-updates {
+      margin: 8px 0 28px;
+      padding: 14px 16px;
+      background: #f3efe6;
+      border-left: 3px solid var(--ink);
+      font-size: 14px;
+    }
+    .source-updates .label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    footer.colophon {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 640px) {
+      .sheet { margin: 0; padding: 28px 20px 24px; border-radius: 0; box-shadow: none; }
+      h1 { font-size: 24px; }
+      .lede { font-size: 17px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header class="mast">
+      <p class="kicker">工作日早报</p>
+      <h1>EDA早报</h1>
+      <p class="meta">2026年11月20日 星期五 · 2026-11-19 08:00 – 2026-11-20 08:00（上海时间）</p>
+    </header>
+    <p class="lede">过去 24 小时，开源工具侧值得看的是 SiliconCompiler 0.39.0：远程链路换成新的 v1 API，原 sc-remote 调用不兼容。更重的几条是补入：Siemens 于 11 月 17 日宣布协议收购 Breker，为 Questa One 补上 SoC 级测试综合；Accellera 则分别在 10 月 21 日和 11 月 11 日发布了功能安全语言 FSL 1.0 与 PSS 3.1。</p>
+<section class="group"><h2><span class="pill p0">P0 必读</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://blogs.sw.siemens.com/verificationhorizons/2026/11/17/siemens-to-acquire-breker-verification-systems-to-expand-soc-portfolio/">Siemens to acquire Breker Verification Systems</a></h3>
+<p class="why">补入（原发布 2026-11-17）。Siemens 宣布协议收购 Breker，把 TrekSoC 等 SoC 级测试套件综合与 SystemVIP 并入 Questa One，用于自动生成针对并发、一致性与多线程系统交互的自检验测试，并可在仿真或硬件验证平台上运行；官方称这将与 Avery VIP、Questa Agentic Toolkit 组合，补上芯片级验证。Breker 方案已用于 Arm 与 RISC-V 平台验证。交易预计 2026 年 12 月完成，财务条款未披露。这是近期验证工具格局里最直接的并购动作。</p>
+<p class="src"><a href="https://blogs.sw.siemens.com/verificationhorizons/2026/11/17/siemens-to-acquire-breker-verification-systems-to-expand-soc-portfolio/">Siemens EDA</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p1">P1 建议看</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://www.accellera.org/news/press-releases/434-accellera-approves-portable-stimulus-standard-3-1-for-release">Accellera Approves Portable Stimulus Standard 3.1</a></h3>
+<p class="why">补入（原发布 2026-11-11）。这是 2024 年 8 月 PSS 3.0 以来的首次更新。新版本加入可参数化的 generic/soft 约束、组件子类型中的 action overriding、导出函数，以及跨 executor 的异构执行（含 typed FIFO，并按 C/C++/SystemVerilog 划分 target execution units），还有共享地址声明、负地址偏移和符号寄存器名等地址与寄存器抽象。标准已可下载。升级时需注意 write32 等访问函数增加了 memory-access descriptor 参数，annotation、overlap、mutable、soft 成为保留字，dynamic constraints 已弃用。</p>
+<p class="src"><a href="https://www.accellera.org/news/press-releases/434-accellera-approves-portable-stimulus-standard-3-1-for-release">Accellera</a></p>
+</li>
+<li>
+<h3><a href="https://github.com/siliconcompiler/siliconcompiler/releases/tag/v0.39.0">SiliconCompiler 0.39.0</a></h3>
+<p class="why">开源芯片设计编译框架当天发布 0.39.0，远程链路是一次不兼容调整：用新的 v1 remote API 的 alpha 客户端/服务端替换原实现，删除 sc-remote，改由 sc-config remote 登录、设默认服务器并取回断线任务结果。同期 OpenROAD 增加尚未纳入流程的 SynthesisTask；opensta 改为 define_scene，因此需要 OpenSTA 3.0.1 及以上；Yosys 的 flatten 改为 flatten/auto/none 三态。使用远程或这些后端的流程需要跟着改调用方式。</p>
+<p class="src"><a href="https://github.com/siliconcompiler/siliconcompiler/releases/tag/v0.39.0">GitHub</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.18517">OpenLayout: An Open and Agentic-Driven Platform for Holistic VLSI Physical Design and Benchmarking</a></h3>
+<p class="why">补入（原发布 2026-11-14）。ICCAD 2026 论文给出面向完整物理设计空间搜索的开源多智能体平台 OpenLayout，把设计经验写入智能体协作，并配套面向先进工艺与商业 EDA 工具的基准 OpenLayout-Bench。论文称相对基线方法准确率约提升 20%。代码在 https://github.com/fenggev56/OpenLayout。对要做或评估物理设计智能体的人，这是一套可对照的平台与基准。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.18517">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.23905">Inference-Time Scaling in Agentic Hardware Verification Workflows</a></h3>
+<p class="why">补入（原发布 2026-11-18）。已发表于 ICLAD 2026。用 Mentor Questa 的周期精确工具链（而非模型自评）评估四种推理时策略，在四款 AMBA 桥（协议复杂度指数 11.8–22.6）上生成 UVM 测试平台。核心结论是结构化诊断反馈是推理算力的倍增器：带 E1–E6 分类的 structured inner loop，边际 PVC/美元约为原始 EDA 工具回读的 15 倍；完整 dual-loop 在全部目标上达到 PVC ≥ 0.95 且 scoreboard 零错误，并在四份参考设计中的两份里找出潜伏 RTL 缺陷。对要在验证流程里分配模型推理预算的人，这是一条可对照的质量–成本曲线。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.23905">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://www.accellera.org/news/press-releases/432-accellera-approves-functional-safety-language-standard-1-0-for-release">Accellera Approves Functional Safety Language (FSL) 1.0</a></h3>
+<p class="why">补入（原发布 2026-10-21）。Accellera 发布功能安全语言 FSL 1.0：这是基于 Tcl 语法的领域语言和数据模型，用来在供应链中创建和交换 FMEDA 数据（失效模式、安全机制、技术信息、安全需求及其与设计对象的映射），并支持层次化 FMEDA，以及 ISO 26262 / IEC 61508 相关失效率与指标的计算报告。它补的是功能安全标准不规定数据如何表示、如何在工具间交换的缺口。标准可从 Accellera 下载。</p>
+<p class="src"><a href="https://www.accellera.org/news/press-releases/432-accellera-approves-functional-safety-language-standard-1-0-for-release">Accellera</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p2">P2 知晓即可</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://semiwiki.com/ceo-interviews/376621-ceo-interview-with-khaled-alashmouny-of-aidachip/">CEO Interview with Khaled Alashmouny of AIDAChip</a></h3>
+<p class="why">前 Apple 模拟/混合信号负责人创办的初创公司。定位不是替代现有 EDA 点工具，而是做覆盖全团队的对齐平台：Intent、Knowledge、Execution 三个引擎之后再挂各学科 AIDA-Agents，主张先对齐再上智能体，避免每人一个代理却没有共享意图。文章称已在一家 Tier-1 设计伙伴的 3 个以上真实芯片项目上做生产试点，beta 开放。这是今天窗口里比较清楚的初创方法陈述，但目前主要是访谈，尚未给出可独立核对的流程或指标。</p>
+<p class="src"><a href="https://semiwiki.com/ceo-interviews/376621-ceo-interview-with-khaled-alashmouny-of-aidachip/">SemiWiki</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.24872">MicroAssert: Microarchitecture-Aware Structured Assertion Generation for CPU Verification</a></h3>
+<p class="why">补入（原发布 2026-11-19）。从 RTL 识别功能区域，用结构化 contract 和确定性验证原语生成局部与组合断言，并以覆盖率反馈扩展证明相关 RTL。在 5 个开源 RISC-V CPU 上对比三种现有断言生成方法：语法正确率 100%，分支、语句和翻转覆盖完整，平均可证率 74.82%、Proof Core 覆盖 90.96%；变异检测平均 28.73%，约为现有方法的 1.99–3.51 倍。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.24872">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.20047">CleanRoute: Reconciling DRC Compliance, Post-Layout Performance, and Runtime in Analog Routing</a></h3>
+<p class="why">补入（原发布 2026-11-15）。针对模拟布线里 DRC、后仿真性能与运行时间难以同时满足的问题：按阶段做层次化规则检查与修复（含金属拼接处的 area/notch 等规则），按电流镜关系和电流建供电树以降低拓扑失配和 IR drop，并用 flush-line 网格在粗网格上补与器件金属边对齐的线。在商业 40 nm 的 10 个 OTA 上全部给出 DRC clean、LVS 通过且功能可用的版图，中位布线时间 8.82 秒；对比基线未能给出 DRC clean 结果。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.20047">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://news.synopsys.com/2026-11-04-Synopsys-Expands-Access-to-Advanced-Chip-Design-Capabilities-Through-European-Chips-Design-Platform">Synopsys Expands Access to Advanced Chip Design Capabilities Through European Chips Design Platform</a></h3>
+<p class="why">补入（原发布 2026-11-04）。Synopsys 与欧洲 Chips JU 达成协议，经 European Chips Design Platform（EuroCDP）向欧洲初创、中小企业和研究团队开放其 EDA 软件，覆盖 Level 1 与 Level 2（从最早阶段到量产前），包括先进工艺上的数字前后端，以及 PIC 和 AMS 流程。这是欧洲芯片法案下的生态入口变化，不涉及工具算法本身。</p>
+<p class="src"><a href="https://news.synopsys.com/2026-11-04-Synopsys-Expands-Access-to-Advanced-Chip-Design-Capabilities-Through-European-Chips-Design-Platform">Synopsys</a></p>
+</li>
+</ol>
+</section>
+<aside class="source-updates"><span class="label">信源变更</span>今日起把 Accellera 官方新闻稿 RSS（https://www.accellera.org/news/press-releases?format=feed&amp;type=rss）列入日常扫描。此前按常见路径未找到可用源，今天核实该 Joomla 格式源可成功解析，能够提供 PSS、FSL 等标准的一手发布。</aside>
+    <footer class="colophon">共用模板 v1 · 请勿改版 · 生成于 2026-11-20 08:15（上海时间）</footer>
+  </article>
+</body>
+</html>
