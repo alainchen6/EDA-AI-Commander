@@ -1,0 +1,66 @@
+{
+  "briefing_name": "AI早报",
+  "date": "2026-11-20",
+  "window": "2026-11-19 08:00 – 2026-11-20 08:00（上海时间）",
+  "lede": "过去 24 小时最值得看的是 Google 在 Gemini Interactions API 中以预览形式推出 Tool Retrieval：工具参数 schema 可按需加载，便于在工具数量变多时减少输入 token。同一窗口里，OpenAI 介绍了用 Codex 自动排查并修复性能回归的 Performance Factory。另外补入此前漏报的几条：Mistral Large 4 于 10 月 29 日开源权重，以及 DeepMind 的 AlphaProof Code、Gemini Decisions API 和 vLLM 0.34.0。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P0",
+      "items": [
+        {
+          "title": "Google 在 Gemini API 推出 Tool Retrieval（预览）",
+          "why": "现已在 Interactions API 中以预览提供。在请求里加入 tool_search，并对希望暂缓加载的工具设置 defer_loading: true。模型仍能看到所有暂缓工具的名称与描述，但参数 schema 先不进入上下文；需要时由 API 在同一次请求内加载完整 schema，再发出函数调用，过程会写在 interaction.steps 里便于调试。也可对远程 MCP 服务器设置 defer_loading: true，不必逐个列出该服务器暴露的工具。若自建工具注册表或权限过滤，可把 tool_search 设为 execution: client，由客户端检索。官方称它与前缀缓存兼容：暂缓的 schema 不放在 prompt 开头，已加载的 schema 加在对话后部，缓存前缀跨轮可保持不变。Tool Retrieval 不另行计费，按所用模型的标准输入/输出价格结算；开启 tool_search 会增加一小段固定输入 token，随后加载的 schema 按输入计费。适用于 Gemini 3.6 及之后的模型，包括所有 Gemini 4 模型。这会改变多工具代理的调用方式。",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-api-tool-retrieval/",
+          "source": "Google"
+        },
+        {
+          "title": "Mistral 开源 Mistral Large 4（Le Chonk）权重",
+          "why": "补入（原发布于 2026-10-29）。Mistral 放出改进后的 Large 4 权重：官方称这是 1 万亿参数、原生多模态的旗舰模型。评测方面，官方给出 Cognition FrontierCode 2.0 得分 19.7%；在 Artificial Analysis Coding Agent Index 上得 48%，与领先开源权重模型 GLM-5.3 基本持平，且每任务平均少用 47% 的 token；在 Terminal-Bench 4.0 上得 41%，较公开预览版提高 13 个百分点，输出 token 减少 30%。模型现支持 Low / Medium / High（默认）三档推理。API 定价为每百万 token 输入 0.70 美元、缓存输入 0.07 美元、输出 2.10 美元。权重可在 Hugging Face 下载，并用 vLLM 或 SGLang 自行部署。许可证为 Mistral Ecosystem Open-Weight（修改版 MIT），可使用、修改、微调和商用，但以模型即服务（MaaS）方式商用需另行取得商业许可。",
+          "url": "https://mistral.ai/news/mistral-large-4-oss/",
+          "source": "Mistral"
+        }
+      ]
+    },
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "OpenAI 介绍 Performance Factory：用 Codex 自动排查并修复性能回归",
+          "why": "工程博文说明该公司如何把 Codex 做成端到端的性能回归工作流。Regression Workflow 在告警触发后，由代理调查、记录结论并提交供工程师审阅的修复，部署后再由另一代理核对是否回到基线。官方称在三个多月里跟踪了超过 1700 次调查，根因定位超过 600 例，相当于每天 17 次自动调查。人工抽查 100 条根因建议，70% 被评为准确，30% 需要进一步完善或未能充分建立因果关系。系统由任务跟踪与可配置工作流、分发循环、云端 Codex API，以及在代码评审或部署完成后唤醒代理的订阅组成。这是内部方法说明，不是对外可调用的新 API。",
+          "url": "https://openai.com/index/how-openai-performance-factory-keeps-chatgpt-fast",
+          "source": "OpenAI"
+        },
+        {
+          "title": "DeepMind 发布 AlphaProof Code，形式化验证 Signal 核心密码实现",
+          "why": "补入（原发布于 2026-11-10）。DeepMind 介绍 AlphaProof Code：由人与模型共同把 Signal 的安全目标写成形式化规约，再由 Gemini Carbon 驱动的代理完成证明，生成超过 600 万行 Lean；Lean 自动检查其余部分，专家只需复核约 1% 的代码。官方称这是首次对广泛部署的密码协议实现做到这一深度的形式化验证（无论是否使用 AI），整个过程用了四周。为验证系统能区分正确与有缺陷的代码，他们把两个此前已修复的真实缺陷重新引入隔离版本，两次都得到了机器检查的「不安全」证明。形式化验证产物将开源。这是研究方法与结果，还不是通用的软件验证产品。",
+          "url": "https://deepmind.google/blog/introducing-alphaproof-code/",
+          "source": "Google DeepMind"
+        },
+        {
+          "title": "Google 推出 Gemini Decisions API 与 Gemini Decision 1",
+          "why": "补入（原发布于 2026-11-12）。这是新的决策端点，由新模型 Gemini Decision 1（gemini-decision-1）驱动，在 Google AI Studio 的 Gemini API 中提供。一次请求可对同一份多模态输入（文本、图像、音频、视频、PDF，最长 256K token）并行评估最多 1000 个独立问题，类型包括是否（noul）、多选（choice，2–255 项）和有序量表（score），并返回概率与 0–1 的置信度。官方称它在单次前向中打分、不按 token 逐个生成答案；在最多 16K token 的上下文上，模型计算中位延迟为 50–100 毫秒，端到端 150–250 毫秒，且从 1 到 100 个问题几乎持平。定价为每百万输入 token 0.10 美元，输出 token 不计费；同一份 input 只计费一次。官方称在其共享评测集上，成本几乎是用 Interactions API 调用 Gemini 3.5 Flash-Lite 的五分之一。这会改变路由、策略检查和分级等闭环决策的调用方式。",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/gemini-decisions-api/",
+          "source": "Google"
+        },
+        {
+          "title": "vLLM 发布 v0.34.0：默认可扩展 KV cache，并移除 Model Runner V1",
+          "why": "补入（原发布于 2026-11-17）。此版本包含 1061 个提交，新支持 10 个模型（含 Mistral Large 4、MiniMax-M3.1-Flash、Nemotron-3.5-Transcribe 等）。默认可扩展 KV cache 已开启：在 warmup 之后按实际空闲显存确定 KV 大小，官方建议多数情况下不再设置 gpu_memory_utilization（该参数默认改为 1.0）；例如 MiniMax-M3 在 H200 上的缓存从 43.3 万增至 67.2 万 token，但部分模型在并发 128 时每 token 解码延迟（TPOT）可能增加 6–18%，可用 --gpu-memory-utilization 0.9 或 --no-enable-extensible-kv-cache 退出。Model Runner V1 已移除，只保留 V2；默认 --block-size 从 16 改为 64；ROCm 7.2 镜像停止发布；要求 huggingface_hub >= 2.0.0。升级时需要核对这些破坏性变更。",
+          "url": "https://github.com/vllm-project/vllm/releases/tag/v0.34.0",
+          "source": "vLLM"
+        }
+      ]
+    },
+    {
+      "level": "P2",
+      "items": [
+        {
+          "title": "llama.cpp 与 ggml 发布 v1.0.0，公共 API 开始按语义化版本管理",
+          "why": "补入（原发布于 2026-11-13）。llama.cpp 与 ggml 同步发布 v1.0.0，此后公共 C API 的不兼容变更会升 major 版本。GitHub Release 还写明：删除已弃用的公共 API，把 NextN/推测解码 API 提升到 llama.h，并加入 OCP FP8 KV cache、可配置 CPU 份额的主机内存 MoE expert cache，以及外部 PLE 分片加载。本地推理集成需要按新的公共头文件迁移。",
+          "url": "https://github.com/ggml-org/llama.cpp/releases/tag/v1.0.0",
+          "source": "llama.cpp"
+        }
+      ]
+    }
+  ]
+}
