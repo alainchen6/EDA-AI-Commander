@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI早报 · 2026-11-21</title>
+  <style>
+    :root {
+      --bg: #efebe3;
+      --paper: #fffcf7;
+      --ink: #1b1814;
+      --muted: #6d675c;
+      --line: #e4ddd0;
+      --accent: #9c3b16;
+      --p0: #9c3b16;
+      --p0-bg: #f8ebe4;
+      --p1: #215246;
+      --p1-bg: #e7f0ec;
+      --p2: #5c574e;
+      --p2-bg: #eeebe4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      max-width: 720px;
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 40px 40px 32px;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(27, 24, 20, 0.04), 0 12px 32px rgba(27, 24, 20, 0.06);
+    }
+    header.mast {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      margin: 0 0 8px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .lede {
+      margin: 0 0 32px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    section.group { margin: 0 0 32px; }
+    section.group h2 {
+      margin: 0 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+    }
+    .pill.p0 { color: var(--p0); background: var(--p0-bg); }
+    .pill.p1 { color: var(--p1); background: var(--p1-bg); }
+    .pill.p2 { color: var(--p2); background: var(--p2-bg); }
+    ol.items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ol.items li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    ol.items li:last-child { padding-bottom: 0; }
+    ol.items h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    ol.items h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    ol.items h3 a:hover { color: var(--accent); }
+    .why { margin: 0 0 8px; color: var(--ink); }
+    .src { margin: 0; font-size: 13px; }
+    .src a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .empty {
+      padding: 20px 0 8px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .source-updates {
+      margin: 8px 0 28px;
+      padding: 14px 16px;
+      background: #f3efe6;
+      border-left: 3px solid var(--ink);
+      font-size: 14px;
+    }
+    .source-updates .label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    footer.colophon {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 640px) {
+      .sheet { margin: 0; padding: 28px 20px 24px; border-radius: 0; box-shadow: none; }
+      h1 { font-size: 24px; }
+      .lede { font-size: 17px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header class="mast">
+      <p class="kicker">工作日早报</p>
+      <h1>AI早报</h1>
+      <p class="meta">2026年11月21日 星期六 · 2026-11-20 08:00 – 2026-11-21 08:00（上海时间）</p>
+    </header>
+    <p class="lede">过去 24 小时最值得看的是 Thinking Machines Lab 开源 Inkling 2 Mini：26.4B 总参数的循环 Transformer MoE，Apache 2.0，检查点约 20GB，可在笔记本上本地运行。同一窗口里，OpenAI 介绍了对抗性蒸馏防护，称 GPT-6.2 Astra 上从先前请求提取受保护推理轨迹的攻击成功率从 54.0% 降到 0.2%；Hugging Face 则公开了在目标 agent harness 内做强化学习的 harness adapters 配方。</p>
+<section class="group"><h2><span class="pill p0">P0 必读</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Thinking Machines Lab 开源 Inkling 2 Mini</a></h3>
+<p class="why">这是面向本地运行的开源权重模型：稀疏 MoE，总参数 26.4B、每 token 激活 3.4B；24 层解码器中，中间 12 层权重共用、运行三遍，合计 48 次层访问，官方把计入循环后的有效激活计为 5.4B。上下文最长 100 万 token，接受图像与文本输入。多数权重以 NVFP4 训练并部署，最后四层为 MXFP8，单份检查点约 20GB；模型卡建议在 32GB 及以上内存的 Apple silicon，或 32GB 及以上显存的其他设备上本地运行。许可证为 Apache 2.0。官方称在总参数不足 100B 的开源权重模型中，DeepSWE v1.1 得 48.2%、Vals Index v2.2 得 46.5%，均列第一；在其对照表上，Artificial Analysis Intelligence Index v5.0 得 20.1，与 Qwen3.8-27B 并列最高。同日还放出可改变循环次数的研究变体。权重可在 Hugging Face 下载，并已在 SGLang、vLLM、Ollama、llama.cpp / Llama App 和 MLX 等推理栈提供支持。这会立刻影响本地与小规模部署的选型。</p>
+<p class="src"><a href="https://thinkingmachines.ai/news/inkling-2-mini/">Thinking Machines Lab</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p1">P1 建议看</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://openai.com/index/combatting-adversarial-distillation">OpenAI 介绍对抗性蒸馏防护，并加强受保护推理轨迹的隔离</a></h3>
+<p class="why">该公司说明如何防止他人用模型输出（尤其是思维链）训练出能力相近、但缺少同等安全措施的学生模型。防护叠在请求级与活动级：对抗训练让模型拒绝泄露受保护推理；输入/输出分类器覆盖流式与非流式响应，以及工具调用参数中的泄漏；API 把 GPT-6.2 Astra 与 Sol 的受保护推理绑定到产生它的对话历史，改写更早消息会丢弃其后的推理，且更早模型族不能读取这两款模型的受保护推理。内部自适应红队测评中，从先前请求提取受保护推理的平均攻击成功率，从 GPT-6 Astra 原有防护下的 54.0% 降到 GPT-6.2 Astra 更新防护下的 0.2%；从当前请求提取则从 22.9% 降到 0.9%。官方还称今年已多次打击未授权蒸馏活动，并与其他模型提供方共享入侵指标。这是安全方法与评测更新，不是新的对外 API。</p>
+<p class="src"><a href="https://openai.com/index/combatting-adversarial-distillation">OpenAI</a></p>
+</li>
+<li>
+<h3><a href="https://huggingface.co/blog/harness-adapters-at-scale">Hugging Face 公开 harness adapters：在目标 agent 框架内用强化学习适配模型</a></h3>
+<p class="why">方法是冻结 Qwen3.8-27B 的原有权重，针对 pi、Hermes Agent、OpenCode 三个 harness 各训一个 LoRA，训练时在真实发布的 harness 内滚动，而不是重写一套代理循环。最终评估中，各专用适配器在对应 harness 下都超过基座：SWE-bench Pro（最难 51 题）上，pi 从 39.2% 升至 64.7%，Hermes 从 29.4% 升至 43.1%，OpenCode 从 35.3% 升至 51.0%；Terminal-Bench 2.1 上 pi 提高 16.3 个百分点、Hermes 提高 14.1 个百分点、OpenCode 提高 6.0 个百分点，并在双方都做对的题目上少调用 53–72% 的工具。他们还将三个 LoRA 按 1/2 权重拼接成一个 rank 96 的 super-adapter，在三个 harness 下均优于基座。在 AutomationBench 的自带代理循环上，适配器与基座差距大致落在噪声范围内，能力没有明确迁移。配方、适配器与轨迹已公开，可按自己的任务和 harness 复现。</p>
+<p class="src"><a href="https://huggingface.co/blog/harness-adapters-at-scale">Hugging Face</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p2">P2 知晓即可</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://openai.com/index/introducing-medchembench">OpenAI 发布 MedChemBench，评测模型在药物化学推理上的表现</a></h3>
+<p class="why">该基准从 117 篇论文和专利中抽出 99 道题、761 个不同分子结构，考查分子结构重建、依据实验证据的科学推理、化合物排序与选择，以及数值性质预测。在 xhigh 推理档，官方给出的总分为 GPT-6.2 Astra 84.5%、GPT-6 Astra 83.3%、GPT-6.1 Sol 82.0%、GPT-5.6 Sol 58.2%。GPT-6 Astra 在结构重建上拿到该部分 95.4% 的分数，但在选择化合物和预测数值性质上大约只拿到一半。官方提醒：这不能说明模型能否发现新药或改进实验室决策，也不能排除模型事先见过公开来源，且每次作答都是无工具的单次尝试。</p>
+<p class="src"><a href="https://openai.com/index/introducing-medchembench">OpenAI</a></p>
+</li>
+</ol>
+</section>
+<aside class="source-updates"><span class="label">信源变更</span>探测 Thinking Machines Lab 官方新闻页（thinkingmachines.ai/news）暂无可用 RSS，已记入 SOURCES.md，未加入扫描。</aside>
+    <footer class="colophon">共用模板 v1 · 请勿改版 · 生成于 2026-11-21 08:07（上海时间）</footer>
+  </article>
+</body>
+</html>
