@@ -1,0 +1,49 @@
+{
+  "briefing_name": "EDA早报",
+  "date": "2026-11-21",
+  "window": "2026-11-20 08:00 – 2026-11-21 08:00（上海时间）",
+  "lede": "过去 24 小时窗口里，没有达到收录门槛的新行业或工具动态。补入几篇因 arXiv 时滞昨天未扫到的论文：FoldSim 把超大规模 RTL 的周期精确仿真折到单颗 FPGA；Verify the Verifier 用形式化合格的断言去查逃过 UVM scoreboard 的规约违背；另外还有面向验证智能体的端到端基准 DVBench，以及跨任务、跨工具链的强化学习环境 SiliconGym。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "FoldSim: Scaling Cycle-Exact RTL Simulation with Hierarchical Folding and Static Scheduling",
+          "why": "补入（原发布 2026-11-20）。FPGA 加速的周期精确 RTL 仿真通常受器件容量限制。FoldSim 用层次化折叠把同一模块类的多个实例映射到共享逻辑、各自保留状态，并由编译器生成静态调度，超出片上容量的状态放到外部存储器、按需取回。在一颗 AMD Alveo V80 上，它可以仿真 8-SM GPU，以及含 4,096 个处理器核的 1,024 节点 Rocket 数据中心；未折叠实现分别大约需要 16 倍和 200 倍 LUT。该数据中心约 1.9 GB 状态放在 HBM；4-SM GPU 完成 1024×1024 GEMM 用时 4.24 秒，论文称软件 RTL 仿真需要 26 小时。论文写明开源于 https://github.com/ucla-orcas/foldsim，但撰写时该仓库返回 404，尚无法核对代码。",
+          "url": "https://arxiv.org/abs/2611.26472",
+          "source": "arXiv"
+        },
+        {
+          "title": "Verify the Verifier: Specification-Grounded LLM Cross-Checking for Bugs That Escape UVM Scoreboards",
+          "why": "补入（原发布 2026-11-20）。通过全部回归并不等于满足规格：scoreboard 只比较它检查过的行为。本文将「scoreboard escape」定义为已通过完整回归、但仍违背规格的缺陷，并给出合格检出标准：生成的断言在注入缺陷的设计上失败、并在原始设计上被非空证明。框架的 Anomaly Cross-Checker 只看规格和含内部信号的波形、不看 RTL；随后用形式验证限定断言，并把反例写成仍能通过 scoreboard、但会触发该断言的定向 UVM 测试。在 4 个 OpenTitan IP 上注入 564 个缺陷，68 个是被测试激励到、功能不等价却仍通过回归的候选逃逸，其中 41 个得到上述合格确认。对把回归全过当作退出条件的验证流程，这是一条可对照的补漏方法。",
+          "url": "https://arxiv.org/abs/2611.26588",
+          "source": "arXiv"
+        },
+        {
+          "title": "DVBench: End-to-End Benchmark for Real-World UVM Design Verification Agents",
+          "why": "补入（原发布 2026-11-19）。现有验证基准多把子任务拆开评测，对不上真实 UVM 环境需要跨规划、建模、组台和根据仿真结果回退的完整流程。DVBench 提供 95 个任务，覆盖 9 个功能域和 5 个难度，只给规格与原生接口、把实现 RTL 当作黑盒，并配套 HDL 仿真环境；智能体须独立完成端到端验证。评估包括编译、覆盖率、缺陷检出和参考模型准确性，以及功能列表、测试计划等中间产物。13 种智能体–模型组合里，最强的 Codex + GPT-6 Astra 总体成功率仍为 21.05%。对要做或评估 UVM 验证智能体的人，这是一套更接近实际流程的尺子。",
+          "url": "https://arxiv.org/abs/2611.25066",
+          "source": "arXiv"
+        },
+        {
+          "title": "SiliconGym: A Versatile Reinforcement Learning Environment for Agentic EDA",
+          "why": "补入（原发布 2026-11-19）。面向硬件工程智能体的强化学习，需要能跨任务保留工作区状态、约束工具调用资源、并支持大规模层次和并行 rollout。SiliconGym 把版本化工作区、带预算的执行和验收门控评分拆开，覆盖模块级 RTL / 测试平台 / PPA，以及多轮仓库修复和全层次 SoC 流程。流式调度让工具检查与生成重叠，256 条回答的 RL 批次比原生 ChipSeek 快 21.9%。它可切换开源与商业后端：论文称开源工具上训出的功能正确性可以迁移到商业仿真，同时用成对的网表评估来判断开源流程上的 PPA 收益能否在商业综合中保住。这是一套跨工具链的训练与评测底座，而不是又一个单任务脚本。",
+          "url": "https://arxiv.org/abs/2611.25658",
+          "source": "arXiv"
+        }
+      ]
+    },
+    {
+      "level": "P2",
+      "items": [
+        {
+          "title": "CRAFT: Analog Circuit Design by Reasoning LLM Agents from Pre-Computed Lookup Tables",
+          "why": "补入（原发布 2026-11-19）。常见自动尺寸搜索把 SPICE 放在循环里，而设计师通常先用手算。CRAFT 让 LLM 智能体只通过 DeX 服务、按计算来完成给定拓扑的尺寸：DeX 用预先算好的查找表提供器件特性，并求解整个网表的工作点和小信号响应，设计过程中不用 SPICE；最终结果再独立用 HSPICE 验证。在商业 28 nm 的 4 个电路上测试，最大的是 37 管三级放大器，有 53 个设计变量、20 项规格和 74 条饱和约束。用 Claude Opus 5.5 时，20 次运行（每电路 5 次）全部满足规格与约束。在该放大器上，同样请求下用 DeX 替代 HSPICE，1 小时内由 6/10 升到 10/10，中位耗时快 2.0 倍。",
+          "url": "https://arxiv.org/abs/2611.25908",
+          "source": "arXiv"
+        }
+      ]
+    }
+  ]
+}
