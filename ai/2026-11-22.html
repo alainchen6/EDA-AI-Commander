@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>AI早报 · 2026-11-22</title>
+  <style>
+    :root {
+      --bg: #efebe3;
+      --paper: #fffcf7;
+      --ink: #1b1814;
+      --muted: #6d675c;
+      --line: #e4ddd0;
+      --accent: #9c3b16;
+      --p0: #9c3b16;
+      --p0-bg: #f8ebe4;
+      --p1: #215246;
+      --p1-bg: #e7f0ec;
+      --p2: #5c574e;
+      --p2-bg: #eeebe4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      max-width: 720px;
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 40px 40px 32px;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(27, 24, 20, 0.04), 0 12px 32px rgba(27, 24, 20, 0.06);
+    }
+    header.mast {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      margin: 0 0 8px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .lede {
+      margin: 0 0 32px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    section.group { margin: 0 0 32px; }
+    section.group h2 {
+      margin: 0 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+    }
+    .pill.p0 { color: var(--p0); background: var(--p0-bg); }
+    .pill.p1 { color: var(--p1); background: var(--p1-bg); }
+    .pill.p2 { color: var(--p2); background: var(--p2-bg); }
+    ol.items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ol.items li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    ol.items li:last-child { padding-bottom: 0; }
+    ol.items h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    ol.items h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    ol.items h3 a:hover { color: var(--accent); }
+    .why { margin: 0 0 8px; color: var(--ink); }
+    .src { margin: 0; font-size: 13px; }
+    .src a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .empty {
+      padding: 20px 0 8px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .source-updates {
+      margin: 8px 0 28px;
+      padding: 14px 16px;
+      background: #f3efe6;
+      border-left: 3px solid var(--ink);
+      font-size: 14px;
+    }
+    .source-updates .label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    footer.colophon {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 640px) {
+      .sheet { margin: 0; padding: 28px 20px 24px; border-radius: 0; box-shadow: none; }
+      h1 { font-size: 24px; }
+      .lede { font-size: 17px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header class="mast">
+      <p class="kicker">工作日早报</p>
+      <h1>AI早报</h1>
+      <p class="meta">2026年11月22日 星期日 · 2026-11-21 08:00 – 2026-11-22 08:00（上海时间）</p>
+    </header>
+    <p class="lede">过去 24 小时最值得看的是 Hugging Face Transformers 发布 v5.24.0：正式接入 Thinking Machines Lab 的 Inkling 2 Mini，并同时加入 Apertus 1.5、NVIDIA Dory、Meta Omnilingual ASR 等模型。另外补入此前漏报的 PyTorch 2.15.0（原发布于 2026-10-29）：重写后的 NCCL 后端成为默认，并带有若干分布式相关的不兼容变更。</p>
+<section class="group"><h2><span class="pill p0">P0 必读</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://github.com/huggingface/transformers/releases/tag/v5.24.0">Hugging Face Transformers 发布 v5.24.0，正式接入 Inkling 2 Mini</a></h3>
+<p class="why">该版本把昨日开源的 Inkling 2 Mini 纳入官方 transformers：24 层解码器（Inkling 2 Small 为 48 层），第 6 至 17 层循环运行三次，并用学习到的 message-passing 把上一轮残差混入注意力与 MoE 输入；隐藏维度 2304，每 token 路由到 128 个专家中的 8 个；图像编码器、分词器与处理器与 Inkling 2 Small 相同。另有可改变循环次数的研究检查点（TML-d24-varloop-research）；两份检查点都含 NVFP4 与 MXFP8 量化层，加载时反量化。同一版本还加入瑞士 AI Initiative 的 Apertus 1.5（文本、图像与音频输入，只生成文本）、WavTokenizer、NVIDIA 的循环语言模型 Dory（推理时可改循环次数）、混元 V4 视觉语言模型 HY4-VL，以及 Meta FAIR 覆盖 1600 余种语言的 Omnilingual ASR（300M 到 7B，提供 CTC 与音频语言模型两种头），另外还有 Lara Mini、Sarvam 等模型。这会立刻影响用 transformers 接入这些模型的方式。</p>
+<p class="src"><a href="https://github.com/huggingface/transformers/releases/tag/v5.24.0">Hugging Face Transformers</a></p>
+</li>
+<li>
+<h3><a href="https://pytorch.org/blog/pytorch-2-15-release/">PyTorch 发布 2.15.0：重写后的 NCCL 后端成为默认</a></h3>
+<p class="why">补入（原发布于 2026-10-29）。该版本由 583 位贡献者的 3117 个提交组成。使用 nccl 的进程组默认改走重写后的 NCCL 后端（2.14 中曾以可选的 nccl2 预览），可用 TORCH_DIST_USE_NCCL2=0 或 nccl-legacy 回退，官方写明这两条回退路径将在下一版本移除；通讯器在创建进程组时即完成初始化，并带有集体通信卡住时写入磁盘的 flight recorder。torch.distributed 新增单边传输 API，首个后端是 NIXL，传输可纳入 CUDA Graph。FSDP2 可用 param_dtype_override_fn 让 MoE router、norm 等敏感参数保持 fp32；当 reduce_dtype=None 时，梯度累加与归约改为按参数的 grad_dtype，不再默认跟随 param_dtype。Apple Silicon 增加 FP8（float8_e4m3fn 与 _scaled_mm），新的 grouped_mm 解码路径官方给出 MoE 解码 1.32–1.34 倍 tokens/s。默认轮子改为 CUDA 13.2，并同时提供 CUDA 13.4 轮子。升级分布式训练代码时需要核对这些默认值与不兼容变更。</p>
+<p class="src"><a href="https://pytorch.org/blog/pytorch-2-15-release/">PyTorch</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p1">P1 建议看</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://www.microsoft.com/en-us/research/blog/tokeneconomizer-learning-from-experience-to-make-ai-coding-agents-more-efficient/">微软研究院开源 TokenEconomizer：用历史会话降低编码代理的费用</a></h3>
+<p class="why">补入（原发布于 2026-11-16）。这是一个无需修改代理或底层模型的开源插件：从同一仓库的历史会话中学习，用 micro-skills 注入已学事实、按历史修剪不常用工具（命令与编辑类核心工具保留），并在反复失败时由判定模型提示换思路。评测在 6 个仓库的 277 道 SWE-Bench 任务、5 种代理与模型组合上进行，TokenEconomizer 从零历史起步，平均费用降低 18.4–30.9%，且在全部 30 个仓库–组合对中都更省；Pass@1 在 5 组中的 4 组上升。相比之下，只降低模型推理力度能省相近或更多费用，但会明显损害成功率。官方称每个仓库的累计费用到第 6 道任务时都会降到低于默认。Web-Bench 上费用低 16.0–21.2%；在每次更换仓库的安全审计任务上低 6.4–19.6%。插件把学到的内容留在开发者本机。</p>
+<p class="src"><a href="https://www.microsoft.com/en-us/research/blog/tokeneconomizer-learning-from-experience-to-make-ai-coding-agents-more-efficient/">Microsoft Research</a></p>
+</li>
+<li>
+<h3><a href="https://huggingface.co/blog/rumble-2-flash">Reson8 开源 Rumble-2-Flash：0.5B 多语种语音识别模型</a></h3>
+<p class="why">补入（原发布于 2026-11-18）。该模型以 Apache 2.0 发布，参数量 0.5B，架构采用 Qwen3-ASR，可在 Transformers 与 vLLM 中直接运行，无需自定义代码或 trust_remote_code。官方称用带 GOLD 的 on-policy distillation 从更大的生产模型 Rumble-2 蒸馏而来，以处理师生分词器不一致的问题。Open ASR Leaderboard 多语言赛道上，官方给出中、德、法、意、西、葡、印地、荷、英的平均错误率 6.96%，优于 Meta omniASR-LLM 7B 与 Whisper large-v3；英语赛道平均 6.6% WER。在 AppTek 302 小时客服电话基准（14 种英语口音）上为 7.86% WER，与 NVIDIA Nemotron 3.5 Transcribe（30B）的 7.78% 接近，优于同系列 Qwen3-ASR 0.6B 的 8.7%，接近 Qwen3-ASR 1.7B 的 7.4%。官方还称在批次较满时吞吐量超过 7000 RTFx。权重在 Hugging Face 的 Reson8/Rumble-2-Flash。</p>
+<p class="src"><a href="https://huggingface.co/blog/rumble-2-flash">Reson8</a></p>
+</li>
+<li>
+<h3><a href="https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/">微软研究院介绍 Lazarus：改写休眠神经元即可为代理植入后门</a></h3>
+<p class="why">补入（原发布于 2026-11-10）。该方法无需训练，只需改写权重，把少于 10 个几乎不激活的休眠神经元重编程为触发检测器，即可在带工具或终端权限的代理中植入后门。模型在常规评测中表现正常，直到触发出现（文中例子包括日期越过某个午夜）才在普通任务中发出下载并执行攻击者代码的命令。官方称这只需要能加载该模型的推理算力，且攻击条件是对检查点的写权限，因此不只是开源权重才面临这一问题。他们强调可靠检测需要与未篡改的原始权重做对照，因此模型来源与完整性很重要；文中也提到可用前沿代理检查异常的权重修改。这是带方法的安全研究，并给出了来源校验与权重审计方面的建议。</p>
+<p class="src"><a href="https://www.microsoft.com/en-us/research/blog/lazare-veni-foras-reprogramming-dormant-neurons-to-backdoor-ai-agents/">Microsoft Research</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p2">P2 知晓即可</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://huggingface.co/blog/moe-expert-streaming">Hugging Face 实验在 Transformers 中做 MoE expert streaming，短解码约落后 Strata 6%</a></h3>
+<p class="why">补入（原发布于 2026-11-18）。Tarek Ziadé 介绍把 MoE 专家放在磁盘、在设备上用有界 slot pool 做缓存的做法：把路由到的专家 id 映射到槽位后仍走原来的 grouped_mm，不必为每个专家写定制 kernel。目标是在 32GB 内存的 Mac 上运行 Qwen3.8-Flash-Next（FP8 下专家约 121GB，量化到 3 bit 后约 49GB）。在同一台 M5、相同提示下，优化后短解码 13.9 tok/s、4K prefill 228 tok/s、6K 文档后解码 12.4 tok/s，分别约为对照引擎 Strata 的 1/1.06、略快和 1/1.1，即短解码大约落后 6%。实现位于 transformers#50717，API 仍在与维护者讨论，目前需从该 PR 安装，还不是已发布版本中的稳定接口。</p>
+<p class="src"><a href="https://huggingface.co/blog/moe-expert-streaming">Hugging Face</a></p>
+</li>
+</ol>
+</section>
+<aside class="source-updates"><span class="label">信源变更</span>新增 PyTorch 官方博客 RSS（https://pytorch.org/blog/feed），作为 GitHub Releases 之外的官方技术博文来源；已确认请求成功。</aside>
+    <footer class="colophon">共用模板 v1 · 请勿改版 · 生成于 2026-11-22 08:11（上海时间）</footer>
+  </article>
+</body>
+</html>
