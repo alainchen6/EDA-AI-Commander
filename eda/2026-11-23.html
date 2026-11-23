@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDA早报 · 2026-11-23</title>
+  <style>
+    :root {
+      --bg: #efebe3;
+      --paper: #fffcf7;
+      --ink: #1b1814;
+      --muted: #6d675c;
+      --line: #e4ddd0;
+      --accent: #9c3b16;
+      --p0: #9c3b16;
+      --p0-bg: #f8ebe4;
+      --p1: #215246;
+      --p1-bg: #e7f0ec;
+      --p2: #5c574e;
+      --p2-bg: #eeebe4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      max-width: 720px;
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 40px 40px 32px;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(27, 24, 20, 0.04), 0 12px 32px rgba(27, 24, 20, 0.06);
+    }
+    header.mast {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      margin: 0 0 8px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .lede {
+      margin: 0 0 32px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    section.group { margin: 0 0 32px; }
+    section.group h2 {
+      margin: 0 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+    }
+    .pill.p0 { color: var(--p0); background: var(--p0-bg); }
+    .pill.p1 { color: var(--p1); background: var(--p1-bg); }
+    .pill.p2 { color: var(--p2); background: var(--p2-bg); }
+    ol.items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ol.items li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    ol.items li:last-child { padding-bottom: 0; }
+    ol.items h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    ol.items h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    ol.items h3 a:hover { color: var(--accent); }
+    .why { margin: 0 0 8px; color: var(--ink); }
+    .src { margin: 0; font-size: 13px; }
+    .src a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .empty {
+      padding: 20px 0 8px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .source-updates {
+      margin: 8px 0 28px;
+      padding: 14px 16px;
+      background: #f3efe6;
+      border-left: 3px solid var(--ink);
+      font-size: 14px;
+    }
+    .source-updates .label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    footer.colophon {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 640px) {
+      .sheet { margin: 0; padding: 28px 20px 24px; border-radius: 0; box-shadow: none; }
+      h1 { font-size: 24px; }
+      .lede { font-size: 17px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header class="mast">
+      <p class="kicker">工作日早报</p>
+      <h1>EDA早报</h1>
+      <p class="meta">2026年11月23日 星期一 · 2026-11-22 08:00 – 2026-11-23 08:00（上海时间）</p>
+    </header>
+    <p class="lede">过去 24 小时，值得看的是 Ramtera 的访谈：这家初创同时做物理验证（LVR）和布局布线（PRE），并给出与签核工具对齐、以及相对 OpenROAD 线长的自述数据。另外补入两则此前漏报：Harmonic 的 Aristotle 在 10 月 28 日把形式化验证扩展到 C 与 Verilog；Yosys 0.71 在 11 月 12 日重写了字符串实现，插件可能需要适配。</p>
+<section class="group"><h2><span class="pill p1">P1 建议看</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://semiwiki.com/ceo-interviews/376107-ceo-interview-with-dr-sameer-pawanekar-of-ramtera/">CEO Interview with Dr. Sameer Pawanekar of Ramtera</a></h3>
+<p class="why">SemiWiki 访谈。Ramtera 是一家做物理设计与物理验证软件的初创：LVR 覆盖 DRC、LVS 和 ERC，PRE 做布局布线，两者都是过去六年自研。LVR 使用自有规则语言 LRF，访谈称现有代工厂规则可以逐行转换，调用方式和结果格式按现有签核流程来，定位是补充而非替代最终签核。公司称目前最熟悉 22nm FD-SOI 与 12nm FinFET，规则覆盖密度、latchup、ESD 和双图案分解；并称在三个先进节点的 42 个测试设计上，LVR 与参考签核工具结果完全一致。PRE 方面，访谈称其布局器在基准设计上的线长比 OpenROAD 短 24–51%，也可用于项目早期估计芯片面积。创始人曾在 OpenROAD 团队做博士后。这些相关性和性能数字目前只来自访谈，尚未看到可独立核对的公开实验细节。</p>
+<p class="src"><a href="https://semiwiki.com/ceo-interviews/376107-ceo-interview-with-dr-sameer-pawanekar-of-ramtera/">SemiWiki</a></p>
+</li>
+<li>
+<h3><a href="https://www.harmonic.fun/news/aristotle-software-hardware-verification/">Aristotle Expands Into Formal Verification for Software and Hardware, Starting With C and Verilog</a></h3>
+<p class="why">补入（原发布 2026-10-28）。Harmonic 把此前用于数学证明的 Aristotle 扩展到软件和硬件形式化验证，首先支持 C 与 Verilog。流程是由系统从代码提出性质，再报告哪些已证明、哪些未证明，以及每条证明所依赖的假设；工程师审阅后写入仓库，并在每次提交时于 CI 中运行。官方称，对 Verilog 可验证控制路径的活性与安全性，以及数据路径上的数学性质；并称在 Tensordyne 一块被认为最难验证的模块上，找到了深达 11 万周期的缺陷。产品已开放自助使用。这是数学形式化工具进入 RTL 验证的一次产品化动作，具体能力仍需用真实设计自行核实。</p>
+<p class="src"><a href="https://www.harmonic.fun/news/aristotle-software-hardware-verification/">Harmonic</a></p>
+</li>
+<li>
+<h3><a href="https://github.com/YosysHQ/yosys/releases/tag/v0.71">Yosys 0.71</a></h3>
+<p class="why">补入（原发布 2026-11-12）。Yosys 0.71 把字符串实现改成了带前缀去重的方案以提升性能，并写明插件可能需要适配，说明见仓库 docs/source/yosys_internals/idstring.rst。同期新增用于确定性重排设计对象的 shuffle 命令；为 verific 和 read_slang 增加实验性的 -target / -family，用于指定 FPGA 综合目标；MCM 通道改用 HCUB 算法，大乘法器运行更快，并取消了原先 32 位的尺寸上限；还修复了大型 casez/priority case 上的内存耗尽崩溃。对编写 Yosys 插件、或把 slang 前端接到 FPGA 流程的人，这次不只是补丁号递增。</p>
+<p class="src"><a href="https://github.com/YosysHQ/yosys/releases/tag/v0.71">GitHub</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p2">P2 知晓即可</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://semiwiki.com/ceo-interviews/376273-ceo-interview-with-tobias-pohl-of-celus/">CEO Interview with Tobias Pohl of CELUS</a></h3>
+<p class="why">SemiWiki 访谈。CELUS 做电子设计前期自动化：从功能需求生成初版原理图和 BOM。推荐项回溯到称为 CUBO 的数字化数据手册（含原理图、BOM、封装等），并与 Siemens EDA 等现有工具衔接；使用方式包括免费注册，以及由 CELUS 驱动的 NXP Block Diagram Designer。其差异化陈述是：每条建议可追溯到引用的 CUBO 或数据手册，方案需经工程师确认后才会生成，并会对输出做自检。正在进行的工作包括完整智能体设计流程，以及用 MCP 连接多种工具。这是对现有平台方法的说明，不是当天的新版本发布。</p>
+<p class="src"><a href="https://semiwiki.com/ceo-interviews/376273-ceo-interview-with-tobias-pohl-of-celus/">SemiWiki</a></p>
+</li>
+</ol>
+</section>
+<aside class="source-updates"><span class="label">信源变更</span>今日 arXiv cs.AR、cs.LO、cs.LG 扫描均因 HTTP 429 或超时失败，源未停用，将在后续运行重试。阅读候选时发现 Harmonic 新闻室（https://www.harmonic.fun/news/）在 10 月公告之后还有 Aristotle 多时钟验证、以及用其形式化验证 Ibex 乘除法指令的文章，但该站没有可用的 RSS/Atom，故暂未入库。</aside>
+    <footer class="colophon">共用模板 v1 · 请勿改版 · 生成于 2026-11-23 08:13（上海时间）</footer>
+  </article>
+</body>
+</html>
