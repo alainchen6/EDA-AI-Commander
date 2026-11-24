@@ -1,0 +1,44 @@
+{
+  "briefing_name": "EDA早报",
+  "date": "2026-11-24",
+  "window": "2026-11-23 08:00 – 2026-11-24 08:00（上海时间）",
+  "lede": "过去 24 小时，值得看的是 Lucid 与 EYL 的验证研究：当 LLM 智能体同时生成 RTL、测试和评审时，模块测试通过会高估验证强度，作者用网表变异体和预注册缺陷回放量化了缺口。另外补入三则 11 月 20 日已发布、此前因 arXiv 时滞未进入候选的论文：DiffScope 针对智能体改写 RTL 后综合评估过慢的问题；ARGUS 用规格约束和形式化排除收口覆盖率长尾；GRADPlace 则给出可布线性驱动的可微布局方法。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "From FIPS to FPGA with LLM Agents: Measuring What Tests and Reviews Miss in Post-Quantum Cryptographic Hardware",
+          "why": "Lucid Motors 与 EYL 的论文，针对当 LLM 智能体同时生成 RTL、测试和评审时，自产证据不足以支撑可信硬件的问题。作者给出七阶段、验证门控的流程，并把一套 ML-KEM-768/ML-DSA-65 密钥托管加速器移植到 300 MHz 的 Zynq UltraScale+ 板卡：板上六种操作均字节精确，通过全部 85 个适用的 NIST ACVP 用例和 484 个 ML-DSA 已知答案。但现有仿真门在三个 RTL 模块上只能杀死 399 个工具筛选网表变异体中的 76%；按存活变异体补写的规格测试，把 decapsulation 的新抽测杀死率从 48% 提到 74%。在对已知答案测试不可见的缺陷做预注册回放时，无方向的整设计评审分别只在 3/6 和 1/6 次会话中抓住两处校验器缺陷，而按模块范围的评审在全部 54 次会话中都抓住了已知缺陷；即便如此，范围内评审对植入的密钥托管缺陷也只在 3/20 次中检出，形式化检查则全部抓住。作者的结论是：可信的智能体硬件流程需要与生成者独立的变异体来检验测试门、模块级范围的 LLM 评审，以及对托管不变量的形式化检查；并明确不宣称该方法可推广到这一设计族之外。",
+          "url": "https://arxiv.org/abs/2611.25339",
+          "source": "arXiv"
+        },
+        {
+          "title": "Mind the Delta: Early Pruning of RTL Variants for Agentic Hardware Optimization",
+          "why": "补入（原发布 2026-11-20）。智能体已能在短时间写出大量功能正确的微架构 RTL 变体，但工业综合仍要数小时，提出与评估的速度不对称。论文提出无需训练的 DiffScope：对同一批变体并行跑完整综合，用已完成的基准设计综合轨迹抵消早期 mapping 共有的面积膨胀（文称初始 mapping 阶段的残差方差降为原来的 1/73.6），再按其他设计族标定的下界，提前停掉明显不可能胜出的任务。在 43 个设计族（从小模块到百万级单元的处理器，共 330 个由编码智能体写出的变体）上，DiffScope 的首选结果与穷尽综合一致，总评估工作量减少 44.9%（约 1.81×），在大规模设计上达到 2.18×；对比的学习预测器、降工作量综合代理，以及直接读 RTL 估 QoR 的编码智能体，都无法做到每次都选中最优。它不改动商业综合工具本身。这些数字来自论文自述，需用自己的设计和工具链核实。",
+          "url": "https://arxiv.org/abs/2611.27035",
+          "source": "arXiv"
+        },
+        {
+          "title": "Specification-Grounded Adaptive Triage and Formal Invariant Exclusion Synthesis for Autonomous Silicon Coverage Closure",
+          "why": "补入（原发布 2026-11-20）。针对覆盖率最后 5%–15% 的收口：把未覆盖点直接丢给 LLM 循环，在工业子系统上会遇到相关空洞造成的上下文膨胀、非法激励产生的“脏覆盖”，以及对结构不可达点的错误 waiver。论文提出的 ARGUS 先从微架构规格和 SVA 构建形式化 Block Contract，再按模块空洞密度在宏聚类（把相关 line/branch/condition/toggle 空洞收成工作模式、FSM、反压等根因）和微手术（AST 与循环域可达性分析，区分可达边角与结构不可达不变量）之间分流，并在约束下生成定向测试和带形式化证明的工具原生 .el 排除文件。评估包括 OpenTitan 的 uart、i2c、aes 以及商业先进制程 AI 加速器相关数据通路，合计 53 个 SystemVerilog 模块、376,127 个覆盖点，并在 2,626 个模块的工业互连子系统上做了扩展。文称 2,626 个模块的分诊只需 0.265 秒，LLM token 消耗降为 1/27.2 至 1/180 以上，有效覆盖率收口 99.32%–100.0%，且 21,071 条以上形式化排除的正确率为 100%（0 条误排除）。这些数字来自论文自述，需用自己的设计和工具链核实。",
+          "url": "https://arxiv.org/abs/2611.26815",
+          "source": "arXiv"
+        }
+      ]
+    },
+    {
+      "level": "P2",
+      "items": [
+        {
+          "title": "GRADPlace: Geometry-Based Routing-Augmented Differentiable Placement for Routability Optimization",
+          "why": "补入（原发布 2026-11-20）。可布线性驱动的布局需要能反映单元移动如何改变布线需求的梯度。现有单元膨胀对布线反馈只是间接利用，可微方法则依赖黑盒拥堵预测，或使用在两次布线更新之间冻结的虚单元拥堵场。GRADPlace 把概率加权的候选路径表示为可随单元坐标移动的横竖线段，用布线反馈设置概率，并通过线段几何把静电学布线目标的梯度传回相连单元，同时保留单元膨胀。在 ISPD 2015 基准上，作者复现的 Xplace-route 与已发表的 DCGP，平均 DRC 违例分别是 GRADPlace 的 3.37 倍和 2.56 倍，过孔也更少，布线后线长相当。",
+          "url": "https://arxiv.org/abs/2611.27287",
+          "source": "arXiv"
+        }
+      ]
+    }
+  ],
+  "source_updates": "昨日因 429 或超时失败的 arXiv cs.AR、cs.LO、cs.LG 今日扫描已恢复（sources_failed=0），因此补入几篇 11 月 20 日已发布、此前未进入候选的论文。"
+}
