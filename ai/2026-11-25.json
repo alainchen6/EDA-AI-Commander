@@ -1,0 +1,61 @@
+{
+  "briefing_name": "AI早报",
+  "date": "2026-11-25",
+  "window": "2026-11-24 08:00 – 2026-11-25 08:00（上海时间）",
+  "lede": "过去 24 小时最值得看的是 OpenAI 公布 GPT-6 系列的蛋白质设计结果：模型只用推理和代码来设计结构与序列，合作实验室在五个靶点上都测到了结合证据。同一窗口里，PyTorch 介绍了用 Torch-TensorRT 把策略编译进 ExecuTorch、在机器人端不必加载完整 PyTorch 即可部署的路径。另外补入此前漏报的 DeepMind AlphaGenome 2、Gemini Robotics 2.5，以及 Reflection 的 Beam 技术报告。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P0",
+      "items": [
+        {
+          "title": "OpenAI：GPT-6 系列具备内在的蛋白质设计能力，实验室测到结合证据",
+          "why": "官方文章称，GPT-6 系列可以只靠推理和通用代码工具设计蛋白质的三维结构与氨基酸序列，而不调用专门的生物学生成模型来给出这些设计。与 Onava 的实验室合作中，他们用尚未正式发布的 GPT-6.2 设计小蛋白（minibinder）的三维结构，再用 SolubleMPNN 等专用模型补全序列并筛选候选：针对 5 个靶点共测试 322 个 minibinder，35 个（10.9%）出现结合证据，且五个靶点都至少有一例（PD-L1 5 例、IL-7Rα 3 例、TrkA 1 例、VEGF-A 8 例、IL-17A 18 例）。在给定已有结合结构、由 GPT-6.2 重写序列的实验中，MDM2、VEGF-A、PD-1 的初筛结合率分别为 75/88（85%）、26/42（62%）和 8/59（14%）；对先前未发表结构新写的 107 条序列中有 14 条（13.1%）结合。抗体结合环改造中，182 个设计里 128 个（70%）仍结合 IL-4Rα，5 个治疗性抗体改写片段中 179/272（66%）仍结合原靶点。计算评估里，最新内部模型在 MotifBench 的 motif scaffolding 上有 43.7% 的设计通过结构预测检查，对照 RFdiffusion 为 27.8%；在 PoseBusters 对接中，GPT-6.2 有 93% 的计分预测接近实验位姿，对照 DiffDock-L 为 50%。官方同时写明局限：筛选仍依赖 Boltz-2、OpenDDE、ESMFold2 等专用结构预测模型，尚不能证明可以在零样本、完全不借助专用模型的情况下端到端设计全新 minibinder；完整结构预测仍明显落后，内部模型平均 TM-score 为 0.38，ESMFold2 为 0.93；结合也不等于特异性、稳定性或药效。部分从结构反推序列的高分结果，官方提醒可能含有记忆或生成过程留下的模式。",
+          "url": "https://openai.com/index/gpt-6-models-demonstrate-intrinsic-protein-design-capabilities",
+          "source": "OpenAI"
+        }
+      ]
+    },
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "PyTorch：用 ExecuTorch 与 TensorRT 在机器人端部署策略，不必加载完整 PyTorch",
+          "why": "官方介绍，搭配 Torch-TensorRT 2.15 与 ExecuTorch 1.6，可以把 PyTorch 模型编译为 TensorRT、存成 ExecuTorch 程序，再从 C++ 或 Python 运行，运行时不必加载 torch；TensorRT 处理不了的部分仍可留在 GPU 上执行。在 NVIDIA Jetson Orin Nano 上，该路径在速度和显存上都进入他们所测最快 TensorRT 方案的 4% 以内；一个 36 亿参数的策略可以放进这块 8GB 开发板，而 PyTorch eager 模式会显存不足。文中给出的例子是 GR00T 1.7（3B）在 Orin Nano 8GB 上约 200 毫秒完成一个 action chunk。编译用 pip install \"torch_tensorrt[executorch]\"，机器人端只需 ExecuTorch 和一个较小的 TensorRT 后端。",
+          "url": "https://pytorch.org/blog/executorch-tensorrt-pytorch-robot-policies-at-nvidia-tensorrt-speed/",
+          "source": "PyTorch"
+        },
+        {
+          "title": "DeepMind 发布 AlphaGenome 2：按细胞类型预测 DNA 变异效应",
+          "why": "补入（原发布于 2026-11-11）。这是 AlphaGenome 的下一代 DNA 序列模型，从组织尺度的平均预测改为按特定人类细胞类型和细胞状态估计变异效应，并重做了模型结构。官方称，与此前的最新模型相比，它识别出的、会改变细胞中基因表达的变异数量接近两倍；训练数据超过 1 亿个单细胞图谱，覆盖 68 种组织。模型是条件式的：除约 100 万碱基的 DNA 输入外，还可以指定参考目录中的细胞类型，或用细胞编码器从研究者自己的单细胞实验即时生成条件。非商业研究现可通过 AlphaGenome API 使用，商业研究在 Google Cloud 上提供私人预览。",
+          "url": "https://deepmind.google/blog/alphagenome-2-deciphering-how-cells-read-dna-to-better-understand-disease/",
+          "source": "Google DeepMind"
+        },
+        {
+          "title": "DeepMind 发布 Gemini Robotics 2.5，并给出工厂场景中的概念验证结果",
+          "why": "补入（原发布于 2026-11-10）。官方称这是迄今最强的视觉–语言–动作（VLA）模型，评估覆盖 200 余项不同任务。与先前基线相比，按任务类型成功率提高 30% 到 100%，完成速度提高 20% 到 30%。在与 Apptronik、梅赛德斯-奔驰的概念验证中，Apollo 2 人形机器人在生产线上做汽车零件分拣装箱，成功率为 96%。安全方面，推理时的引导使绕开障碍物时的安全完成率提高 33%、靠近人员时提高 43%；同时发布开源基准 ASIMOV-Jailbreak，官方称 Gemini 4 Argon 的越狱抵抗率为 99.5%，对照先前的 Gemini Robotics ER 2 为 82%。该模型正在向机器人合作伙伴推送。",
+          "url": "https://deepmind.google/blog/gemini-robotics-2-5-accelerates-real-world-physical-intelligence/",
+          "source": "Google DeepMind"
+        },
+        {
+          "title": "Reflection 公布 Beam 技术报告：501.3B 开源权重 MoE 的训练与架构细节",
+          "why": "补入（技术报告原发布于 2026-11-20；模型权重已在此窗口之前放出）。Beam 是稀疏 MoE，总参数 501.3B、每 token 激活 23.4B，52 层中 49 层为 MoE，每层 256 个专家、激活 8 个，上下文 1M。报告称预训练使用 23.8T token；1M 上下文来自两阶段 midtraining。后训练在 10,500 张 GB300 上做大规模异步强化学习，4 周产生超过 1 亿条 rollout。配套包括 FP8/NVFP4 量化，以及 19.3 亿参数的推测解码草稿模型 DFlash 2。安全数字为作者自报：在对话轮次与伤害类别上平均，对有害请求拒绝或转向 88.9%，对无害请求遵从 81.5%。权重以 Apache 2.0 发布，这是报告本身，不是今天新开源。",
+          "url": "https://arxiv.org/abs/2611.26358",
+          "source": "arXiv"
+        }
+      ]
+    },
+    {
+      "level": "P2",
+      "items": [
+        {
+          "title": "DeepMind 开放 SatWeave 与 PARDIG：用于天气模型的卫星拼接与降水数据集",
+          "why": "补入（原发布于 2026-11-13）。这两个数据集是 WeatherNext 3 的基础数据，现提供历史归档和实时源。SatWeave 把 GOES-East、GOES-West、Meteosat 0、Meteosat Indian Ocean 和 Himawari 的观测拼成全球图，覆盖可见光、水汽和红外共 17 个通道，按小时更新，并提供十余年归档。PARDIG 是基于 AI 的全球降水再分析，时间分辨率 15 分钟、空间约 10 公里，平均延迟约 5 小时，历史范围 1999–2026 年；官方称在美、欧、日雷达网及全球 3.6 万余个气象站的评估中，对轻到中等降水的逐小时检测技能比 NASA IMERG-Final 提高 30% 以上。数据放在 Google Cloud Storage，PARDIG 历史目录也可在 Google Earth Engine 使用。",
+          "url": "https://deepmind.google/blog/opening-the-datasets-behind-our-ai-weather-models/",
+          "source": "Google DeepMind"
+        }
+      ]
+    }
+  ],
+  "source_updates": "探测 Reflection 官方博客的常见 RSS/Atom 路径（/blog/rss.xml、/blog/feed、/blog/feed.xml、/rss.xml）均返回 404，暂未加入扫描。"
+}
