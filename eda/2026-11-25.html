@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDA早报 · 2026-11-25</title>
+  <style>
+    :root {
+      --bg: #efebe3;
+      --paper: #fffcf7;
+      --ink: #1b1814;
+      --muted: #6d675c;
+      --line: #e4ddd0;
+      --accent: #9c3b16;
+      --p0: #9c3b16;
+      --p0-bg: #f8ebe4;
+      --p1: #215246;
+      --p1-bg: #e7f0ec;
+      --p2: #5c574e;
+      --p2-bg: #eeebe4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      max-width: 720px;
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 40px 40px 32px;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(27, 24, 20, 0.04), 0 12px 32px rgba(27, 24, 20, 0.06);
+    }
+    header.mast {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      margin: 0 0 8px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .lede {
+      margin: 0 0 32px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    section.group { margin: 0 0 32px; }
+    section.group h2 {
+      margin: 0 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+    }
+    .pill.p0 { color: var(--p0); background: var(--p0-bg); }
+    .pill.p1 { color: var(--p1); background: var(--p1-bg); }
+    .pill.p2 { color: var(--p2); background: var(--p2-bg); }
+    ol.items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ol.items li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    ol.items li:last-child { padding-bottom: 0; }
+    ol.items h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    ol.items h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    ol.items h3 a:hover { color: var(--accent); }
+    .why { margin: 0 0 8px; color: var(--ink); }
+    .src { margin: 0; font-size: 13px; }
+    .src a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .empty {
+      padding: 20px 0 8px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .source-updates {
+      margin: 8px 0 28px;
+      padding: 14px 16px;
+      background: #f3efe6;
+      border-left: 3px solid var(--ink);
+      font-size: 14px;
+    }
+    .source-updates .label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    footer.colophon {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 640px) {
+      .sheet { margin: 0; padding: 28px 20px 24px; border-radius: 0; box-shadow: none; }
+      h1 { font-size: 24px; }
+      .lede { font-size: 17px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header class="mast">
+      <p class="kicker">工作日早报</p>
+      <h1>EDA早报</h1>
+      <p class="meta">2026年11月25日 星期三 · 2026-11-24 08:00 – 2026-11-25 08:00（上海时间）</p>
+    </header>
+    <p class="lede">过去 24 小时窗口里，厂商侧值得看的是 Siemens 说明 Questa One Avery UCIe VIP 如何按设计成熟度验证 UCIe.mem。更重的内容是补入几篇此前未进入候选的论文：ChiProgramBench 用管脚级实验衡量智能体能否重建功能正确且高效的电路；另外两篇分别用分层形式化引导缩小自然语言规格到 RTL 的语义缺口，以及按区域瓶颈协同优化 RTL 与综合算法；还有面向固定芯片 P&amp;R 的空白区预结构化方法，以及用 LLM 改写 Verilog 改善时钟门控效率的实验。</p>
+<section class="group"><h2><span class="pill p1">P1 建议看</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://arxiv.org/abs/2611.29582">LLM-Assisted Co-Optimization of RTL and Synthesis Algorithms via Bottleneck Analysis</a></h3>
+<p class="why">补入（原发布 2026-11-23）。后综合 PPA 同时取决于 RTL 与综合算法，只改其中一层往往会碰到另一层的瓶颈。论文提出按区域做协同优化的框架：用高斯过程根据区域图表示和 PPA 反馈，判断该区域更适合改 RTL 还是改综合算法；再由贝叶斯优化与 LLM Router 决定处理方式，由可自我改进的 LLM worker 在指定区域改写 RTL 或综合算法，并把区域改动贪心合并回当前设计配置。作者在 16 个 RTL 设计上称，相对初始设计，最差负时序余量（WNS）平均改善 103.27%，面积改善 1.23%，功耗改善 13.26%，并分别比各指标最强基线高出 47.80、2.75 和 13.17 个百分点。这些数字来自论文自述，需用自己的设计和工具链核实。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.29582">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.31082">ChiProgramBench: Can LLM Agents Rebuild Efficient Circuits from Pin-Level Experiments?</a></h3>
+<p class="why">补入（原发布 2026-11-24）。针对只能运行、不能查看内部的电路（例如加密仿真模型或丢失设计数据的遗留模块），作者给出 18 个源自开源处理器、加速器、编解码、变换、互连和控制电路的任务：智能体只能驱动并读取隐藏、有状态仿真参考的管脚，然后提交由公开库单元组成的门级网表。设置分两种：黑盒发现只给出匿名功能管脚和固定存储器接口；功能引导重建额外提供电路用途和各管脚角色。隐藏测试按周期比对输出，只有全部通过后才按参考设计计算功耗、延时和面积得分。6 种 LLM 智能体配置共 432 次试验中，黑盒和功能引导的全用例通过率分别只有 12.0% 和 14.8%；功能引导把按周期加权的功能分数均值从 24.6% 提到 30.9%。在 58 个全部通过的设计里，只有 3 个在综合功耗、面积和延时上优于参考，说明行为复原与高效实现仍是两件不同的事。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.31082">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.30766">Bridging the Semantic Gap from Natural Language Specifications to RTL with Layered Formal Guidance</a></h3>
+<p class="why">补入（原发布 2026-11-23）。自然语言规格常把周期级时序、状态更新、接口协议和边角行为说不清楚，LLM 只能自行补假设，因而生成结果不稳定。论文把 SVA 当作中间语义层，分三步引导：生成前由属性补全规格，生成后做属性一致性检查，再按反例做针对性改写。评测覆盖 RTLLM、VerilogEval、CVDP 和 ChipVerilog 等任务，并接到通用模型以及 OriGen、RTLCoder、CodeV-R1 等专用方法上。以 DeepSeek-V4-Flash 为例，生成属性在 FPU / OR1200 上的语法有效率分别为 85.8% 和 91.0%，非空断言率为 91.9% 和 88.8%；规格补全把 Pass@1 从 5.6% 和 12.2% 提到 11.1% 和 29.3%，再加上一轮反例精化后达到 22.2% 和 40.2%。作者还称，规格补全在 FPU、OR1200、CVDP 上分别平均提高 pass@1 6.67、11.46 和 7.75 个百分点，反例精化再增加 8.22、9.54 和 3.05 个百分点；CodeV-R1 在 RTLLM 2.0 上的 pass@1 从 72.90% 提到 89.70%。这些数字来自论文自述，需用自己的任务和工具核实。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.30766">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.28511">Reverse Seam-Carving: Structured Whitespace Preconditioning for Fixed-Die P&amp;R</a></h3>
+<p class="why">补入（原发布 2026-11-21）。高利用率下空白区不足，合法化和时钟树综合时的单元位移会拉长布线后线长。现有流程多用均匀密度目标或布局后再被动腾挪空白，较少在布局前优化空白区结构。论文提出的 Reverse Seam-Carving（RSC）在不改变芯片面积和利用率的前提下，把空白区重分配成贯穿核区、分隔较密区域的低密度缝；再用半解析模型 SeamGain，根据一次均匀流程参考运行来选择 RSC 配置，文称一次选定运行即可达到扫描最优线长改善的 86%。在 OpenROAD 与 ASAP7 上，作者称布线后线长最多减少 27.6%，平均减少 15.4%。这些数字来自论文自述，需用自己的设计和工具链核实。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.28511">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.29461">LLM-Assisted Verilog Code Refinement for Efficient RTL Clock Gating</a></h3>
+<p class="why">补入（原发布 2026-11-22）。RTL 时钟门控要反复改 Verilog、做门控推断并评估时钟门控效率（CGE），周转较慢。论文让 LLM 先为设计生成 Idle、Typical、Peak 三类工作负载，由用户选定优化目标；再由四个分别对应不同时钟门控手法的 LLM 智能体，按该负载下触发器门控效率（FGE）偏低的寄存器依次改写代码。只有功能等价、且后综合功耗下降又不违反面积和时序约束的改写才会被接受。作者在五个 RTL 设计上称，相对原始 Verilog，选定负载下 FGE 平均提高 12.1 个百分点，功耗平均降低 23.6%（最高 59.3%）；对比的商业工具和 LLM 基线平均只降耗 4.1% 和 8.6%。这些数字来自论文自述，需用自己的设计和工具链核实。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.29461">arXiv</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p2">P2 知晓即可</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://blogs.sw.siemens.com/verificationhorizons/2026/11/24/ucie-mem-one-protocol-multiple-verification-paths/">UCIe.mem: One protocol, multiple verification paths</a></h3>
+<p class="why">Siemens 在 Verification Horizons 介绍 Questa One Avery UCIe VIP 如何按设计成熟度验证 UCIe.mem。早期设计若只暴露 AXI 等常规存储接口、尚未实现该协议，VIP 可以把这些接口桥接到 UCIe.mem 事务；实现了协议并暴露 FDI 时，VIP 作为链路对端做直接协议检查；系统级则可用 CXL.mem host VIP，或由存储控制器加模型组成的存储子系统 VIP，分别代表计算侧或存储侧。该 VIP 还提供 UCIe.mem 合规测试集、协议检查和端到端数据校验。这是厂商对一项较新芯片间存储协议的验证路径说明，具体能力仍需用自己的设计核实。</p>
+<p class="src"><a href="https://blogs.sw.siemens.com/verificationhorizons/2026/11/24/ucie-mem-one-protocol-multiple-verification-paths/">Siemens</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.28667">When to Test, Repair, or Regenerate: Decision-Guided Efficient RTL Generation</a></h3>
+<p class="why">补入（原发布 2026-11-21）。许多 RTL 生成智能体用仿真反馈做精化，但若没有参考测试平台，即使初稿已经正确，也要先为每个实现生成测试，推断成本偏高。论文加入一个自适应控制层：由专门的决策模型调度测试、精化和候选选择，高分初稿直接接受，其余再生成测试平台；若还需要搜索，则按初始分数分配修复与重新生成，并用缺陷排序和仿真反馈引导修复；最终优先选择通过测试的候选，再按决策模型打分排序。作者称，配上 DeepSeek 后，在三个基准上相对初稿的平均 Pass@1 提高 5.4–7.1 个百分点，相对同样候选上限的测试平台引导修复基线，合计推断成本降低 11.0–14.3%。这些数字来自论文自述，需自行核实。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.28667">arXiv</a></p>
+</li>
+</ol>
+</section>
+<aside class="source-updates"><span class="label">信源变更</span>今日 arXiv cs.LG 扫描因 ReadTimeout 失败，源未停用，将在后续运行重试。另有若干 11 月 21–24 日已发布、此前未进入候选的 cs.AR / cs.LO 论文今天首次出现在补扫中。</aside>
+    <footer class="colophon">共用模板 v1 · 请勿改版 · 生成于 2026-11-25 08:10（上海时间）</footer>
+  </article>
+</body>
+</html>
