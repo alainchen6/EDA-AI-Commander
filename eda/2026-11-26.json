@@ -1,0 +1,62 @@
+{
+  "briefing_name": "EDA早报",
+  "date": "2026-11-26",
+  "window": "2026-11-25 08:00 – 2026-11-26 08:00（上海时间）",
+  "lede": "过去 24 小时窗口里，行业侧值得看的是 EE Journal 对 ChipNexus NEX Analog Agent 的介绍：该能力已于 10 月 27 日推出，可在客户现有的 Virtuoso、Spectre 与 Calibre 流程里做原理图修改、Spectre 仿真和 Calibre DRC/LVS，但本版本还不含寄生提取与后仿真。同时补入几篇此前未进入候选的 11 月 24 日论文：面向残差 DRC 的多智能体修复、结合数据流与仿真探针的 RTL 调试、比 VerilogEval 更难的 CPU 级 HDL 生成基准，以及开源 SystemVerilog 到 SystemC 转换的翻译验证；另外还有面向 2.5D/3D IC 周期热分析的随机游走求解器，以及 Keysight 为 Tower PH18 认证 ADS Photonic Designer。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "ChipNexus 将智能体工作流接入现有 Virtuoso、Spectre 与 Calibre 模拟设计流程",
+          "why": "补入（原发布 2026-10-27；今日由 EE Journal 详细介绍后首次写入早报）。ChipNexus 宣布 NEX Analog Agent 已可在客户已安装的 Cadence Virtuoso、Spectre 和 Siemens Calibre 以及相应 PDK、模型与验证规则上运行，不要求替换原有设计环境。智能体可按阶段协调项目建立、原理图与版图编辑、导出网表并跑 Spectre、执行 Calibre DRC/LVS，以及导入导出 GDS；阶段报告会区分成功、已运行但未达接受标准、以及未能运行，把 DRC 违例或 LVS 不一致视为未完成并交回修复，而不是写成已经做完。官方说明还强调结果需带上工艺角、温度、电源和负载等条件。公司同时写明：本版本覆盖前仿真与物理验证，寄生提取和后仿真不在此工具集内。官方稿件中的客户耗时与覆盖范围来自其自述，需用自己的工艺和设计核实。",
+          "url": "https://www.businesswire.com/news/home/20261027326629/en/ChipNexus-Brings-Agentic-AI-to-Analog-Design-Running-on-Customers-Existing-Virtuoso-Spectre-and-Calibre-Flows",
+          "source": "Business Wire"
+        },
+        {
+          "title": "AgentDRC: Multi-Agent Algorithms for Spatially-Aware Automated DRC Correction",
+          "why": "补入（原发布 2026-11-24）。物理设计里残差 DRC 仍常要人工修，现有 LLM 智能体又容易被无关图形、原始坐标上的空间推理不足，以及扁平版图表示拖累。论文把迭代修 DRC 写成多智能体算法：按几何与非几何动作分流，用空间关系过滤无关图形，再检查方向、幅度和邻近冲突。作者称，在较难的违例上最高达到 30.4% 的 pass@1 和 55.7% 的 pass@5，pass@5 比最强基线高 13.8 个百分点，并计划在论文接收后开源代码和基准任务。这些数字来自论文自述，需用自己的规则和版图核实。",
+          "url": "https://arxiv.org/abs/2611.31876",
+          "source": "arXiv"
+        },
+        {
+          "title": "RTLDetective: Agentic RTL Debugging through Dataflow Analysis and Simulation-Guided Fault Localization",
+          "why": "补入（原发布 2026-11-24）。RTL 功能错误会沿信号和模块边界传播，只看输出波形往往找不到根因；没有黄金参考时，中间信号的期望值也不清楚。论文提出多智能体框架：从 RTL 建信号依赖图，从失败波形提取信息；定位智能体预测中间信号的期望值，再通过有针对性的仿真干预沿依赖关系探测，缩小可疑逻辑；调试智能体结合静态分析、硬件设计原则和 RTL 缺陷模式知识库生成修补，并在迭代中复用缓存上下文以降低推断开销。作者在 MEIC 基准上称修复率为 86.1%，比最强基线高 13.9 个百分点，同时调用 LLM 的次数更少。这些数字来自论文自述，需自行核实。",
+          "url": "https://arxiv.org/abs/2611.31709",
+          "source": "arXiv"
+        },
+        {
+          "title": "CPU-Eval: Evaluating Large Language Models for CPU Hardware Code Generation",
+          "why": "补入（原发布 2026-11-24）。近期 HDL 生成系统在 VerilogEval 上的通过率已超过 90%，继续用它很难分辨进展。作者给出 CPU-Eval：339 个生成题目，来自 6 款实际 CPU（含已流片系列），覆盖从小嵌入式核到可跑 Linux 的乱序核，语言包括 SystemVerilog、Chisel 和 SpinalHDL。每个题目让模型生成一个子模块，再嵌回原 CPU、跑测试程序并用轨迹比对定位功能错误。作者称，7 个最新模型在 CPU-Eval 上的平均 pass@1 比 VerilogEval v2 的 Spec-to-RTL 低 45.14 个百分点；源码行数更多的子模块，以及使用更小众 HDL 的 CPU，pass@1 也更低。这些数字来自论文自述，需自行核实。",
+          "url": "https://arxiv.org/abs/2611.32405",
+          "source": "arXiv"
+        },
+        {
+          "title": "Translation Validation of SystemVerilog-to-SystemC RTL Conversion by Reading the Generated C++",
+          "why": "补入（原发布 2026-11-24）。越来越多 SystemC RTL 模型来自翻译器或语言模型，错模型通常仍能编译，也常常和 RTL 表面上一致；但 SystemVerilog 按位宽截断、C++ 按更宽整数运算，漏掉一次截断就可能只在接近上限的激励上暴露。作者开源了 SystemVerilog 到 SystemC 的转换器 svcc，并用 C++17/SystemC 的语义解读生成头文件，把未定义行为变成证明义务，再按同名寄存器对源网表做归纳等价证明。在 50 个作者自写设计上证明了 45 个，另 5 个被报告为超出模型；在变异实验中，17 个能编译且 SystemC 仿真已显示错误的变异均未被接受。对 16 个开源库中的 2,184 个模块，有 1,185 个转换在随机联合仿真中与 Verilator 一致，其中 600 个被该检查证明；同一批运行还发现了前端、svcc 和 Verilator 中的缺陷。",
+          "url": "https://arxiv.org/abs/2611.31674",
+          "source": "arXiv"
+        }
+      ]
+    },
+    {
+      "level": "P2",
+      "items": [
+        {
+          "title": "Walk the Cycle: An Efficient Stochastic Solver for Periodic Thermal Analysis of 2.5D/3D ICs",
+          "why": "补入（原发布 2026-11-24）。2.5D/3D IC 在周期负载下会进入周期稳态，全场确定性求解偏贵，现有随机游走又不是为长期周期问题和含 TSV 的多尺度结构设计的。论文提出 CycleWalker：把周期稳态写成无需初温和预热的无限历史反向游走，但只估计周期先验的残差，并用俄罗斯轮盘缩短长路径且保持无偏；先验由粗网格傅里叶求解再加细网格平滑低成本构成，热图则按 TSV 阵列构造以限制跳跃率并保留各向异性导热。作者称，在同等精度下，相对瞬态随机游走求解器最高可加速 75.85 倍。这些数字来自论文自述，需用自己的结构和工具核实。",
+          "url": "https://arxiv.org/abs/2611.32082",
+          "source": "arXiv"
+        },
+        {
+          "title": "Keysight 为 Tower PH18 硅光 PDK 认证 ADS Photonic Designer",
+          "why": "补入（原发布 2026-11-09；今日由 SemiWiki 转述后首次写入早报）。Keysight 宣布 Advanced Design System 的 Photonic Designer 已认证支持 Tower Semiconductor 的 PH18 硅光 PDK，可在同一环境里从原理图做到仿真和版图，把光子集成电路与原有高速数字、射频电路放在同一套 ADS 流程中做电–光–电仿真。ADS 提供符合设计规则的光子版图器件和设计级 LVS，代工厂级验证与 tapeout 仍在 Tower 工具中完成。该 PDK 现已提供。这是代工 PDK 与商业光电协同设计流程的对接，具体精度和周转仍需用自己的设计核实。",
+          "url": "https://www.businesswire.com/news/home/20261109345043/en/Keysight-Brings-Radio-Frequency-and-Photonic-Design-Together-for-Tower-Semiconductor",
+          "source": "Business Wire"
+        }
+      ]
+    }
+  ],
+  "source_updates": "今日扫描 38 个源全部成功。阅读候选时核对了 ChipNexus 与 Keysight 官方站点：前者没有可用的 RSS/Releases 源，后者新闻室有访问校验，均未写入 sources.yaml。相关动态分别经由 EE Journal 与 SemiWiki 进入候选，早报改指向对应的一手新闻稿。另有若干 11 月 23–24 日已发布、此前未进入候选的 cs.AR 论文今天首次出现在补扫中。"
+}
