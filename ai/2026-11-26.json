@@ -1,0 +1,72 @@
+{
+  "briefing_name": "AI早报",
+  "date": "2026-11-26",
+  "window": "2026-11-25 08:00 – 2026-11-26 08:00（上海时间）",
+  "lede": "过去 24 小时最值得看的是 vLLM 对 11 月 13 日新加坡 meetup 的技术复盘：用管线并行提升 prefill 吞吐、用 agent 写出与训练端逐位一致的推理核，以及面向 Vera Rubin 的局部性优化。同一窗口里，Hugging Face 给出了在单张 RTX PRO 6000 上把 Inkling 2 Mini 单用户解码从约 136 提到 190.6 tok/s 的可复现配方。另外补入此前漏报的 OpenAI GPT-6 Cyber，以及 DeepMind 刚放出的 Mass Spec Skills。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P0",
+      "items": [
+        {
+          "title": "OpenAI 发布 GPT-6 Cyber：面向授权安全研究的网络安全模型",
+          "why": "补入（原发布于 2026-11-05）。这是接在 GPT-5.6 Cyber 之后的专用网络安全模型，官方称在多数网络任务上优于 GPT-6 Astra（即使 Astra 未拒绝请求），并按公司 Preparedness Framework 把该模型的网络安全能力从 GPT-5.6 Cyber 的 High 上调为 Critical。在测试「能否利用指定漏洞」的 ExploitGym 上，GPT-6 Cyber 为 48.5%，对照 GPT-5.6 Cyber 的 32.1%。新的黑盒 Web 渗透评测中，漏洞召回率为 40.3%，对照 GPT-6 Astra 的 32.0%。在新建的 RemoteExploitBench（受控环境中的已知漏洞，应用包括 GitLab、PostgreSQL、Jenkins）上，搭配 Daybreak Blue 的 GPT-6 Astra 拒绝了全部任务，GPT-6 Cyber 完成了 95%，唯一失败是一处远程利用未跑通。对齐方面，官方在 ExploitGym Honeypot 上称：不加部署安全提示时，GPT-6 Cyber 在 99.93% 的测试中未攻击任务范围外的服务，对照 GPT-5.6 Cyber 为 94.49%；加上部署提示后为 100%。官方还写道，研究团队用该模型在 Linux 中开发了 948 个提权利用，并在 Firefox 中找出 81 个此前未知的高危漏洞，Mozilla 已为其中许多漏洞发布修复。模型先通过 API 和 Codex 向获批的 Daybreak Red 客户开放，官方称将逐步扩大到全部 Daybreak Red 客户，并同时向全部 Daybreak Red 客户提供 GPT-5.6 Cyber。",
+          "url": "https://openai.com/index/introducing-gpt-6-cyber",
+          "source": "OpenAI"
+        }
+      ]
+    },
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "vLLM 复盘新加坡 meetup：更快的 Prefill、agent 写的一致核，以及 Vera Rubin 路径",
+          "why": "官方整理了 11 月 13 日在新加坡的技术分享。Inferact 指出，在大约 100K 输入 token（约 95% 已缓存）、3 秒 TTFT 要消化 5K 新 token 的 agent 流量下，prefill 的每 token 预算比 decode 紧约 33 倍；在 MiniMax-M3.1-Flash、2×GB300 上，PP2 的最大吞吐可达 TEP2+SP 的 1.37 倍。按实测时间而非层数均衡流水线、限制 step size，并把激活传输放到 copy engine 上后，接近饱和时 p50 TTFT 下降 13–20%，该路径已在 NVLink 上默认开启；新的 PP 感知调度按队列确定 micro-batch，使 PP2 大约从 0.5 秒 TTFT 起领先。NVIDIA 介绍 SM12x（RTX PRO、DGX Spark）上的内核与调度：FlashInfer 中具备专用 SM12x 核的类别从 1 月的 0/17 增至 10 月的 14 项；一行 dispatch 修正带来 +17.7% 吞吐，NVFP4 线性层优先 W4A4 再加 +23.8%；8×RTX PRO 5000 上 32K token 的 prefill 为 939 毫秒，MoE decode 读权重达到实测 DRAM 峰值的 98–99%。vLLM-Omni 在 4×H200 上实时服务单会话的交互世界模型 LingBot-World 2.0：Ulysses 序列并行把 H200 上一个 block 从 2,397 毫秒降到 725 毫秒；每个 12 帧分块较 9 月快 1.9 倍且无质量损失，打开全部可选优化后为 2.75 倍（22.5 fps），超过 12 fps 的实时线。Inferact 与 NVIDIA 还报告，普通核在 DeepSeek V4 上会因浮点加法不可结合而与训练端产生 KL 漂移，约 100 步内崩溃，而逐位一致的核将 KL 保持为 0，额外代价约为 rollout 速度的 10%；在此基础上，REINFORCE Zero 的异步 RL 不必再做 clipping 或丢样本，准确率 48.80%，对照同步 RL 的 48.91%，每次更新从 49.4 秒降到 20.6 秒（2.40 倍）。面向 Vera Rubin，内存受限的 decode 核提升 8–29%，TMA 负载从 13.4 提到 18.7 TB/s（HBM 峰值 19.2 TB/s）；在 InferenceX 上，MiniMax M3.1-Flash 跑 Vera Rubin NVL72，在匹配交互性时约为 GB300 每美元 token 数的 4.3–6.5 倍。",
+          "url": "https://pytorch.org/blog/vllm-singapore-meetup-faster-prefill-agent-written-kernels-and-the-road-to-vera-rubin/",
+          "source": "PyTorch"
+        },
+        {
+          "title": "Hugging Face：在单张 RTX PRO 6000 上把 Inkling 2 Mini 解码推到约 190 tok/s",
+          "why": "Inkling 2 Mini 已在此前早报中介绍过。这篇记录了在一块 96GB 的 RTX PRO 6000 上、用编码 agent 按固定实验协议做了 46 次有效基准后的结果：单用户解码从约 136 提到 190.6 tok/s（+40%），高于同一 GPU 上社区 SGLang+DSpark 的 167.7 tok/s；8 用户合计吞吐从约 570 提到 716 tok/s（+26%）。最佳配置是 vLLM nightly 加上自带的 DSpark 推测解码（7 个 draft、probabilistic 采样），并加上 --max-model-len 262144 和 --gpu-memory-utilization 0.85，否则 1M 上下文的 KV 与草稿模型会在 96GB 上 OOM。greedy 输出在开关推测解码前后逐字节一致，needle 检索在约 25 万 token 处 3/3 通过。作者按显存带宽估算，推测解码下单用户上限约 201 tok/s，190.6 已约达 95%，再靠调旗标空间不大。日志、脚本和测量数据放在 NielsRogge/inkling-2-mini-hillclimb。",
+          "url": "https://huggingface.co/blog/inkling-2-mini-inference-hillclimb",
+          "source": "Hugging Face"
+        },
+        {
+          "title": "DeepMind 发布 Mass Spec Skills：在 Antigravity 里把 tandem 质谱推到候选结构",
+          "why": "补入（原发布于 2026-11-24）。这是一组给 Google Antigravity 用的质谱技能，把参考库检索、分子式推断（SIRIUS）、候选结构评分（MAGMa、MetFrag 等）和化学合理性检查串成可审计的工作流，供化学家复核。官方背景是：参考谱库平均只能注释约 5% 的实测谱（人体样本约 10%）。在从 MoNA 的 Enamine REAL MS/MS 集合抽取的 100 个化合物上（结构同时收录于 PubChem；每种设置每条谱尝试 3 次，超时 1 小时计失败），不联网、不用技能时，Gemini 3.8 Flash、Gemini 4 Argon 和 Gemini 4 Carbon 的准确率都低于 4%；只给联网时，两个前沿模型仍漏掉四分之一到三分之一，轻量模型漏掉四分之三以上；加上 Mass Spec Skills 后，三个模型都在约 97% 的尝试中鉴定并核验到确切分子，轻量模型与前沿模型持平。技能还降低了每轮生成 token：Flash 约降为四分之一，Argon 约降一半，Carbon 约降五分之一。官方同时写明局限：镜像分子和部分近缘异构体无法仅靠 LC-MS/MS 区分；数据库中不存在的全新分子也不能被模型独自确认，只能给出分子式、峰归属和注释表作为起点。技能可在 Antigravity 中通过 Mass Spec 插件安装。",
+          "url": "https://deepmind.google/blog/interpreting-mass-spectra-with-google-antigravity/",
+          "source": "Google DeepMind"
+        },
+        {
+          "title": "PyTorch：ExecuTorch 增加 WebGPU 后端，同一份 .pte 可在浏览器 GPU 上运行",
+          "why": "补入（原发布于 2026-11-11）。模型经 torch.export 导出为 ExecuTorch 的 .pte 后，可在支持 WebGPU 的浏览器里由新的 WebGPU 后端执行，不必先转成 GGUF、ONNX 或 TFLite；同一文件也可在 Metal、Vulkan 和 D3D12 上运行。官方称已覆盖 Llama 3.2、Qwen3、Gemma 3 等 LLM，以及 SmolVLM、SAM 2、Whisper 等视觉与语音模型，并支持部分模型的端侧 LoRA / DiReFT 微调。在同一台机器上、Chrome + Apple M1 Pro、量化的 Llama 3.2 1B 与 Qwen3-0.6B 上，WebGPU 相对 ExecuTorch 的 Wasm+XNNPACK CPU 路径，prefill 快 4–7 倍，decode 快 2–10 倍。推理在标签页内本地完成。官方提供 ExecuTorch WebGPU Playground，并标明后端仍处于早期开发。",
+          "url": "https://pytorch.org/blog/executorch-webgpu-pytorch-models-on-the-gpu-in-the-browser/",
+          "source": "PyTorch"
+        }
+      ]
+    },
+    {
+      "level": "P2",
+      "items": [
+        {
+          "title": "ggml 发布 v1.1.0：扩展图 API，并在各后端加入 NVFP4 与性能修复",
+          "why": "这是 v1.0.0 之后的第一个小版本。图 API 增加了 gated-delta-net 的 pending-token replay（新接口 ggml_gated_delta_net_ext，旧接口弃用）、Flash Attention 的 indexed bias、有序的异步 host input 拷贝，以及调度器的 scratch 预留；并新增 SLEEP、SIGMOID_BACK 算子。核心侧为更多算子补了 BF16，量化与 CPU kernel 有加速。后端方面，CUDA/HIP、Metal、Hexagon 等加入或完善了 NVFP4，CUDA 还有 RMS_NORM 融合与 CONV_2D 的 implicit GEMM 路径，Vulkan 实现了 stream-k 矩阵乘，WebGPU 与 OpenCL 也扩大了算子覆盖。对在 llama.cpp / ggml 上跟新模型族和低比特推理的人有用。",
+          "url": "https://github.com/ggml-org/ggml/releases/tag/v1.1.0",
+          "source": "GitHub"
+        },
+        {
+          "title": "OpenAI 发布 Images 2.6：API 提供 Flare 与 Sunburst，并支持 GIF 与更细的编辑控制",
+          "why": "补入（原发布于 2026-11-04）。Images 2.6 已在 ChatGPT、Codex 和 API 上线。官方称生成速度比之前快 50%；API 提供 GPT-Image-2.6 Flare 与 Sunburst，Flare 在 quality=low 时最快约 6 秒出图，Sunburst 面向 medium/high 质量与跨编辑的一致性。新能力包括生成 GIF、把已在 ChatGPT 中提供的 image markup 引入 API、支持 SVG 导出，以及用 complexity 参数控制规划量。所有 ChatGPT 与 Codex 订阅档位均可使用；API 型号的具体价格见官方定价页。",
+          "url": "https://openai.com/index/introducing-images-2-6",
+          "source": "OpenAI"
+        },
+        {
+          "title": "Google 发布 Gemini Omni 1.2 Flash：原生 15 秒视频，价格下调 30%",
+          "why": "补入（原发布于 2026-11-05）。在 Gemini Omni 1.1 的 10 秒上限之上，1.2 Flash 可原生生成和多轮编辑最长 15 秒的视频，时长可按 1 秒步进在 3 到 15 秒之间指定。官方称参考图、最多 3 秒的动作片段和音频提示的遵循更好，并支持多轮改背景、光线或画幅而不必整段重生成。价格较 1.1 下调 30%，720p 为每秒 0.07 美元。该模型已在 Gemini API 和 Google Cloud 上正式可用，输出带 SynthID 水印。",
+          "url": "https://blog.google/innovation-and-ai/technology/developers-tools/introducing-gemini-omni-1-2-flash/",
+          "source": "Google"
+        }
+      ]
+    }
+  ]
+}
