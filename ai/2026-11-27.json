@@ -1,0 +1,72 @@
+{
+  "briefing_name": "AI早报",
+  "date": "2026-11-27",
+  "window": "2026-11-26 08:00 – 2026-11-27 08:00（上海时间）",
+  "lede": "过去 24 小时最值得看的是 llama.cpp 发布 v1.1.0：接入 Inkling 2 全家系及一批新模型，并把旧的 llama_batch API 标为弃用，改用 llama_batch_ext。同一窗口里，NVIDIA 为 Nemotron 3.5 Parse 开源训练数据、微调配方和 DFlash2 推测解码，SemiAnalysis 用 GDPx 对比了近期前沿模型。另外补入此前漏报的 OpenAI 自动漏洞挖掘流水线（原发布于 11 月 4 日）：一次运行验证并生成了 948 个 Linux 本地提权漏洞的补丁。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P0",
+      "items": [
+        {
+          "title": "llama.cpp 发布 v1.1.0：接入 Inkling 2 全家系，并弃用旧的 llama_batch API",
+          "why": "这是 v1.0.0 之后的第一个小版本。新接入 Inkling 2（含视觉）、Inkling 2 Mini 与 DSpark，以及 Domyn Edge 4B、Zaya1 8B、MiniMax-M3.1、RAON-1-mini-preview（30B-A4B MoE）和 Hy4 flash（220B，激活 12B）等；并把 DFlash 推测解码拆成 draft-dflash、draft-dflash2、draft-dspark、draft-lilicorr 四种草稿方法。API 方面，旧的 llama_batch 被标为弃用，改用 llama_batch_ext 与 llama_process；服务端接受 OpenAI 风格的具名 tool_choice。另有按目标 bpw 或体积自动做逐张量量化、一批 TTS/音频模型（Kokoro、Zonos3-Mini、VoxCPM2、Kyutai Hibiki 等），以及 llama-server 的 slot 调度重构。该版本同时把依赖的 ggml 更新到 v1.1.1。本地推理和绑定 llama.cpp API 的项目需要评估迁移。",
+          "url": "https://github.com/ggml-org/llama.cpp/releases/tag/v1.1.0",
+          "source": "GitHub"
+        },
+        {
+          "title": "OpenAI 公布自动漏洞挖掘流水线：一次运行产出 948 个 Linux 本地提权利用与补丁",
+          "why": "补入（原发布于 2026-11-04）。OpenAI 介绍了一套自主的漏洞发现、动态验证、可利用性评估与补丁生成流水线。在一次使用即将发布的网络安全模型、于 2026 年 10 月中旬完成的运行中，流水线在未削弱的库存桌面系统上动态复现了 1,724 个漏洞，并生成了 291 个信息泄漏 PoC 和 948 个可用的本地提权（LPE）利用；API 费用共 1,213,430 美元，约合每个 LPE 1,279 美元。在缩小攻击面的改编 kernelCTF 环境中，得到 25 个信息泄漏 PoC 和 21 个 LPE，API 费用约 32,936 美元。官方称其中的智能体发现并使用了至少 10 种新的 Linux 利用技术。输出经人工研究员审阅后，按 Linux 社区指引从关键漏洞开始报告，并与 Patch the Planet 合作方继续提交补丁。这是对该公司 6 月用 GPT-5.5 Cyber 报告 24 个 LPE 的规模化扩展。",
+          "url": "https://openai.com/index/a-thousand-fewer-paths-to-root",
+          "source": "OpenAI"
+        }
+      ]
+    },
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "NVIDIA 为 Nemotron 3.5 Parse 开源训练数据、微调配方和 DFlash2 推测解码",
+          "why": "这是对已发布的文档解析模型的后续技术放出：三份合成训练集（Synthetic Charts V1 约 998 万条、Synthetic Tables V1 100 万条、OCR Synthetic Multilingual v2 约 790 万条），以及一套经 NeMo Automodel SFT 和 NeMo RL GRPO 的微调配方。官方给出对照：在开发检查点上，用可验证奖励的强化学习（RLVR / GRPO）后，被标记循环的输出从 126 页降到 29 页（约少 77%），触达 9,000 token 上限的从 185 降到 35，总分从 66.24 提到 71.38。推理方面，内置 MTP 提供 1 token 前瞻；可选的 DFlash2 草稿模型一次最多提议 32 个 token，在该配置下平均约接受 14 个草稿 token。在一块 H200、BF16、原生单次通过的测试中，相对关闭推测解码的 Parse 3.5，DFlash2 在并发 1 时吞吐提高到 7.62 倍，并发 512 时提高到 1.52 倍（13.48 页/秒提高到 20.44 页/秒）。",
+          "url": "https://huggingface.co/blog/nvidia/building-on-nemotron-35-parse-open-data-fine-tunin",
+          "source": "Hugging Face"
+        },
+        {
+          "title": "SemiAnalysis 用 GDPx 对比近期前沿模型：GPT-6.2 Astra 总体领先，软件工程明显弱于 Fable 5.2",
+          "why": "GDPx 由 14 家专业数据合作方共建 206 项任务，覆盖芯片设计、网络安全、生物、金融、法律、量化交易、递归自我改进、硬件设计、材料科学、对齐和软件工程等。文章给出当前总分：GPT-6.2 Astra 19.3% 第一，Fable 5.2 16.4% 第二，GPT-6.2 Sol 11.5%，Gemini 4 Carbon 10.9% 第五，Gemini 4 Neon 10.1% 第六；该基准发布时最高分是 Opus 5.5 的 12%。若去掉网络安全、生物和对齐，并把法律、金融改为部分给分，Astra 为 32.2%、Fable 为 29.9%。分项上，Astra 是第一个在法律上得分高于 0% 的模型，并在金融上领先；但软件工程得分约为 Fable 5.2 的一半。成本方面，Fable 5.2 每项任务约 88 美元、123 万输出 token，费用约为 Astra 的 1.9 倍、输出 token 约为 3.9 倍。文章还写到，跑 Neon 的这次评测花费 15,286 美元，若缓存命中率达到 Opus 5.5 的水平，费用约可少 18%。",
+          "url": "https://newsletter.semianalysis.com/p/evaluating-recent-model-releases",
+          "source": "SemiAnalysis"
+        },
+        {
+          "title": "AIChipBench：用 LLM 智能体自动设计 AI 加速器的基准，正确设计仍可能在状态更新上出错",
+          "why": "这篇论文指出，语言模型解码器在硬件里会把状态留到后续时间步，错误的状态更新可能让当前 token 看起来正确，却在若干 token 之后才腐蚀输出，因此只看输出测试会漏掉真实错误。基准据此分正确性与 PPA 两条赛道：智能体从接口或脚手架出发编写 RTL，最终设计在隔离评估器中冻结，并必须通过其全部门控；PPA 赛道还要求在 LUT 增加不超过 2% 的前提下至少加快 5%。领导板上 Sol 5.6 与 Fable 5.1 总分约 25，Astra 6 与 Opus 5.5 低于 17（总分定义为 100×平均正确率×平均加速成功率）。超过三分之一试图加快已正确设计的尝试以失败告终。作者认为，硬件智能体需要能暴露内部存储状态的调试反馈，基准的最终测试也应超出开发用用例。代码与评测在 frontiereval/AIChipBench。",
+          "url": "https://arxiv.org/abs/2611.33093",
+          "source": "arXiv"
+        },
+        {
+          "title": "SGLang 发布 v0.5.23：低延迟融合核、Paged Experts，并支持 TPU7x",
+          "why": "补入（原发布于 2026-11-03）。这是一次 257 位贡献者、1,007 个 PR 的版本。新接入 Muse Spark Open、Beam-1.0、MiniMax-M3.1-Flash 等模型。性能方面，官方称 DeepSeek-V4.1 在 GB300 上高负载 prefill 吞吐最高约提升 1.5 倍，32K–64K 提示的首 token 延迟约降 28%；可选的 NVIDIA megakernel 与 AMD monokernel 把 DeepSeek-V4.1-Flash 的 decode 做成融合常驻核，单用户 decode 在 GB300 上最高约快 44%，在 MI350X 上约快 75%。Paged Experts（可选）可在单张消费级 GPU 上运行超过显存的 MoE，官方称最高比 CPU offload 快约 30 倍。此版本还通过 SGLang-TorchTPU 在 Google TPU7x 上运行，并为量化 MoE（FP8、NVFP4）提供可选的 LoRA 引擎。",
+          "url": "https://github.com/sgl-project/sglang/releases/tag/v0.5.23",
+          "source": "GitHub"
+        }
+      ]
+    },
+    {
+      "level": "P2",
+      "items": [
+        {
+          "title": "ggml 发布 v1.1.1：Hexagon 2.0 支持 INT-HMX W8A8，并重构 CUDA FlashAttention 数据加载",
+          "why": "紧跟昨天的 v1.1.0。Hexagon 2.0 加入 INT-HMX 的 W8A8 矩阵乘、F32 到 F16 的自动降精度，以及通用 DMA 流水线，并为多数算子补充 F16/DMA 路径。CUDA 侧重构并去重了 FlashAttention 在 vec、tile、mma 核中的数据加载，还支持 16 头的 lightning indexer；SYCL 增加 gated-delta-net 的 ESIMD 核并融合循环卷积；Metal 对小 K 的矩阵-向量做了调优。另外补了 TANH 反向，并修复了 OpenVINO 解码等问题。llama.cpp v1.1.0 已把 ggml 依赖更新到此版本。",
+          "url": "https://github.com/ggml-org/ggml/releases/tag/v1.1.1",
+          "source": "GitHub"
+        },
+        {
+          "title": "llama.cpp 与 AMD 推出 Ryzen / Radeon 推理基准看板，数据和流程公开",
+          "why": "官方在 Hugging Face 上线了 llama.cpp × AMD Performance Explorer，可按硬件、模型、量化和构建号查看 PP512（处理 512 个输入 token）和 TG128（生成 128 个 token）吞吐，并提供构建历史与上下文扩展曲线。当前硬件是 Radeon 8060S（gfx1151）和 Radeon AI Pro R9700S（gfx1201）；模型包括 Inkling 2 Mini、Qwen、Gemma、gpt-oss、LFM 等。基准使用预编译二进制和 llama-bench，Flash Attention 开关各测，每项重复 10 次，工作流按周运行。原始结果可公开查阅。看板在 huggingface.co/spaces/llama-benches/amd。",
+          "url": "https://huggingface.co/blog/ggml-org/llamacpp-amd-bench",
+          "source": "Hugging Face"
+        }
+      ]
+    }
+  ]
+}
