@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>EDA早报 · 2026-11-27</title>
+  <style>
+    :root {
+      --bg: #efebe3;
+      --paper: #fffcf7;
+      --ink: #1b1814;
+      --muted: #6d675c;
+      --line: #e4ddd0;
+      --accent: #9c3b16;
+      --p0: #9c3b16;
+      --p0-bg: #f8ebe4;
+      --p1: #215246;
+      --p1-bg: #e7f0ec;
+      --p2: #5c574e;
+      --p2-bg: #eeebe4;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+    .sheet {
+      max-width: 720px;
+      margin: 32px auto;
+      background: var(--paper);
+      padding: 40px 40px 32px;
+      border-radius: 6px;
+      box-shadow: 0 1px 2px rgba(27, 24, 20, 0.04), 0 12px 32px rgba(27, 24, 20, 0.06);
+    }
+    header.mast {
+      border-bottom: 2px solid var(--ink);
+      padding-bottom: 20px;
+      margin-bottom: 28px;
+    }
+    .kicker {
+      margin: 0 0 8px;
+      font-size: 11px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      font-weight: 600;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      line-height: 1.2;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
+    .meta {
+      margin: 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .lede {
+      margin: 0 0 32px;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    section.group { margin: 0 0 32px; }
+    section.group h2 {
+      margin: 0 0 14px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+    .pill {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 999px;
+      letter-spacing: 0.06em;
+    }
+    .pill.p0 { color: var(--p0); background: var(--p0-bg); }
+    .pill.p1 { color: var(--p1); background: var(--p1-bg); }
+    .pill.p2 { color: var(--p2); background: var(--p2-bg); }
+    ol.items {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    ol.items li {
+      padding: 14px 0;
+      border-top: 1px solid var(--line);
+    }
+    ol.items li:last-child { padding-bottom: 0; }
+    ol.items h3 {
+      margin: 0 0 6px;
+      font-size: 17px;
+      font-weight: 650;
+      line-height: 1.4;
+    }
+    ol.items h3 a {
+      color: var(--ink);
+      text-decoration: none;
+    }
+    ol.items h3 a:hover { color: var(--accent); }
+    .why { margin: 0 0 8px; color: var(--ink); }
+    .src { margin: 0; font-size: 13px; }
+    .src a { color: var(--accent); text-decoration: underline; text-underline-offset: 2px; }
+    .empty {
+      padding: 20px 0 8px;
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .source-updates {
+      margin: 8px 0 28px;
+      padding: 14px 16px;
+      background: #f3efe6;
+      border-left: 3px solid var(--ink);
+      font-size: 14px;
+    }
+    .source-updates .label {
+      display: block;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      color: var(--muted);
+      margin-bottom: 6px;
+      font-weight: 600;
+    }
+    footer.colophon {
+      border-top: 1px solid var(--line);
+      margin-top: 12px;
+      padding-top: 16px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    @media (max-width: 640px) {
+      .sheet { margin: 0; padding: 28px 20px 24px; border-radius: 0; box-shadow: none; }
+      h1 { font-size: 24px; }
+      .lede { font-size: 17px; }
+    }
+    @media print {
+      body { background: #fff; }
+      .sheet { margin: 0; padding: 0; box-shadow: none; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+  <article class="sheet">
+    <header class="mast">
+      <p class="kicker">工作日早报</p>
+      <h1>EDA早报</h1>
+      <p class="meta">2026年11月27日 星期五 · 2026-11-26 08:00 – 2026-11-27 08:00（上海时间）</p>
+    </header>
+    <p class="lede">过去 24 小时，行业侧值得看的是 Siemens Calibre 团队讨论 3D IC 寄生提取里几条不再成立的 signoff 假设，并给出装配感知的模块化提取做法。同时补入此前漏报的一条并购：Siemens 已于 11 月 10 日宣布协议收购 Lauterbach，计划把 TRACE32 调试与跟踪和其硬件辅助验证流程打通；另外补入 11 月 25 日因 arXiv 滞后未进入昨日候选的几篇论文，分别关于宏观布局的多样性强化学习、无需梯度训练的 RTL 生成模型编辑，以及用自然语言规格共同演化微结构。</p>
+<section class="group"><h2><span class="pill p0">P0 必读</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://press.siemens.com/global/en/pressrelease/siemens-expand-portfolio-semiconductor-design-and-verification-planned-acquisition">Siemens 协议收购 Lauterbach，计划把 TRACE32 调试跟踪与硬件辅助验证打通</a></h3>
+<p class="why">补入（原发布 2026-11-10；今日由 EE Times 对 Siemens 两笔拟定收购的报道进入候选后首次写入早报，其中 Breker 一笔已在 11 月 20 日早报写过，此处只补 Lauterbach）。Siemens 宣布协议收购总部位于慕尼黑附近的嵌入式调试与跟踪工具商 Lauterbach，计划把它的硬件辅助调试器和实时跟踪工具 TRACE32 与 Siemens 现有的硬件辅助验证流程合并，让开发者在物理芯片出来之前就能一并查看硬件与嵌入式软件的行为。官方称 Lauterbach 约有 170 人、服务 1,200 多家客户，2025 年营收约 6,000 万欧元；交易预计 2027 年上半年完成，尚需满足惯例交割条件并获得监管批准，财务条款未披露。EE Times 援引的分析也提醒：并购本身不会立刻给出统一的开发环境，短期产品形态未必马上变化。</p>
+<p class="src"><a href="https://press.siemens.com/global/en/pressrelease/siemens-expand-portfolio-semiconductor-design-and-verification-planned-acquisition">Siemens</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p1">P1 建议看</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://semiwiki.com/eda/siemens-eda/376688-four-signoff-assumptions-that-dont-survive-the-move-to-3d-ics/">3D IC 寄生提取：四条平面 signoff 假设在混合键合堆叠上不再成立</a></h3>
+<p class="why">Siemens Digital Industries Software 的 Calibre 寄生提取团队指出，面向平面芯片的四条 signoff 习惯在混合键合和紧密堆叠的 3D IC 上不再成立：只在裸片级签核并不能代表装配后的耦合与负载；把整堆扁平化一次性提取也往往不可行；接口提取算出的耦合电容如果落在未暴露的内部或被切分的导体上，合并网表时会被丢掉；把一条沿键合面走线的耦合收成单点端口，也会掩盖分布式效应。文章给出的做法是模块化、装配感知的提取：各裸片单独提取，再只提取接口处的跨裸片耦合且不重复计算，并预先生成连接点，使内部网和分布耦合都能进入系统级网表，供时序、噪声和信号完整性分析使用。文中以 Calibre 3DStack 与 xACT3D 为例说明该流程，具体精度仍需用自己的堆叠和工具核实。</p>
+<p class="src"><a href="https://semiwiki.com/eda/siemens-eda/376688-four-signoff-assumptions-that-dont-survive-the-move-to-3d-ics/">SemiWiki</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.34472">DiversePlace: Diversity-Seeking Curriculum Reinforcement Learning for Macro Placement</a></h3>
+<p class="why">补入（原发布 2026-11-25；因 arXiv 收录滞后，昨日扫描未进入候选）。宏观布局必须在后续实施结果还测不准时就做决定，现有强化学习布局器多半只优化半周长线长（HPWL）这一不完美代理，容易收敛到单一模式，而 HPWL 最好的方案并不一定是后续拥塞或 PPA 最好的。DiversePlace 用带质量门控多样性奖励的课程 PPO，在有竞争力的 HPWL 区域内维持一组彼此有差异的候选，供后续阶段挑选。作者称，在 ISPD2005 的八个设计上，top-5/10/20 归档多样性均有提升，HPWL 全部更低或几乎持平，并且效率更好；代码已公开。这些数字来自论文自述，需用自己的设计和下游流程核实。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.34472">arXiv</a></p>
+</li>
+<li>
+<h3><a href="https://arxiv.org/abs/2611.33973">Kolpona: An Agentic Framework with Gradient-Free Neuron Programming for RTL Generation</a></h3>
+<p class="why">补入（原发布 2026-11-25；因 arXiv 收录滞后，昨日扫描未进入候选）。开源权重的 RTL 生成模型通常要靠大规模已验证 Verilog 语料做微调。Kolpona 提出无需梯度训练的做法：用闭式的单神经元写入去掉在练习任务上发现的失败习惯，只有在新任务的 testbench 结果变好时才保留该修改；推理阶段再用带工具的智能体提出候选，并在没有黄金 testbench 或参考设计的条件下选出一个设计。作者称，在 Qwen3.5-4B 上，编辑 16 个神经元后，模型单独的 VerilogEval v2 pass@1 从 31.7% 升到 55.4%，完整框架达到 77.6%；在 Qwen3.8-27B 上，VerilogEval v2 从 73.1% 升到 94.9%，RTLLM v2.1 从 66.0% 升到 92.0%。这些数字来自论文自述，且近期已有工作指出 VerilogEval 区分度下降，需自行核实。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.33973">arXiv</a></p>
+</li>
+</ol>
+</section>
+<section class="group"><h2><span class="pill p2">P2 知晓即可</span></h2>
+<ol class="items">
+<li>
+<h3><a href="https://arxiv.org/abs/2611.33346">NEVA: Natural-Language Co-Evolution and Validation of Microarchitectures</a></h3>
+<p class="why">补入（原发布 2026-11-25；因 arXiv 收录滞后，昨日扫描未进入候选）。已有用大模型演化微结构的方法，多半直接改架构仿真器里的 C++ 代码，模型和实现细节缠在一起，也缺少对硬件约束的显式校验。NEVA 先从已有论文抽取结构、状态和决策规则，再在自然语言规格层面共同演化多个部件，并对候选做分阶段校验后再生成仿真代码。作者称，在 Claude Opus 5.5 下，相对 Pythia–Mockingjay 基线，留出单核性能最高提升 4.8%；一次 EvoX 搜索评估 40 个候选，约 2.2 天、按 API 标价约 320 美元。多核结果与基线没有显著差异。这些数字来自论文自述，需自行核实。</p>
+<p class="src"><a href="https://arxiv.org/abs/2611.33346">arXiv</a></p>
+</li>
+</ol>
+</section>
+<aside class="source-updates"><span class="label">信源变更</span>今日扫描 38 个源全部成功。Siemens 收购 Lauterbach 的官方稿发布在 press.siemens.com，现有 Siemens 博客源未覆盖该类企业新闻稿，因而此前漏报。该站点 RSS（https://press.siemens.com/global/en/rss.xml）请求成功，但是全公司新闻且当前窗口仅约 10 条，套用现有关键词会产生大量误匹配，故未写入 sources.yaml。今日由 EE Times 报道进入候选后，早报改指向 11 月 10 日的官方新闻稿。另有若干 11 月 25 日已发布的 cs.AR 论文因 arXiv 收录滞后，昨日未进入候选，今天作为补入处理。</aside>
+    <footer class="colophon">共用模板 v1 · 请勿改版 · 生成于 2026-11-27 08:15（上海时间）</footer>
+  </article>
+</body>
+</html>
