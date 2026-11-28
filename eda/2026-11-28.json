@@ -1,0 +1,21 @@
+{
+  "briefing_name": "EDA早报",
+  "date": "2026-11-28",
+  "window": "2026-11-27 08:00 – 2026-11-28 08:00（上海时间）",
+  "lede": "过去 24 小时值得看的是，TSMC 在 2026 年欧洲 OIP 生态系统研讨会上宣布 A14 的 PDK 0.9 与设计生态系统已可进入设计，并说明 NanoFlex Pro 里 Boost Cell 与低功耗单元的用法；Cadence 与 Synopsys 已完成基于 Arm Cortex-A725 的全设计流程认证，Siemens EDA 的完整流程仍在推进。",
+  "empty": false,
+  "sections": [
+    {
+      "level": "P1",
+      "items": [
+        {
+          "title": "TSMC 宣布 A14 PDK 0.9 可进入设计，Cadence 与 Synopsys 完成全流程认证",
+          "why": "TSMC 在 2026 年欧洲 OIP 生态系统研讨会上表示，“A14 0.9 设计生态系统和 PDK 已可进入设计”（design-in）。A14 采用第二代纳米片晶体管，并在 N2 家族 NanoFlex 之上推出 NanoFlex Pro 标准单元架构：关键路径可放紧凑的高速 Boost Cell，对频率不敏感的逻辑则用更窄纳米片的低功耗单元，而不必把整颗芯片都按最高性能去优化。TSMC 称，相对采用 NanoFlex 的 N2P，A14 加 NanoFlex Pro 在同等功耗下性能约高 14%，或在同等性能下总功耗约低 23%。会上同时宣布，Cadence 与 Synopsys 已用 Arm Cortex-A725 和 TSMC 基础 IP 完成覆盖实现与签核的全设计流程认证；Siemens EDA 的完整流程仍在推进。A14 计划 2027 年下半年风险量产、2028 年下半年量产，并提供向 A13 的迁移路径：官方称在设计流程无显著改动的情况下，芯片面积约可再减 6%。上述 PPA 与进度数字来自 TSMC 在研讨会上的说明，需用自己的设计和工具链核实。官方 EDA Alliance 页面上的分项认证表仍标注为截至 2026-10-01。",
+          "url": "https://semiwiki.com/semiconductor-manufacturers/tsmc/376876-tsmc-reveals-details-of-a14-manufacturing-compared-to-n2p/",
+          "source": "SemiWiki"
+        }
+      ]
+    }
+  ],
+  "source_updates": "今日扫描 38 个源全部成功。TSMC 此次在欧洲 OIP 会上宣布 A14 PDK 0.9 就绪，官方新闻中心 pr.tsmc.com 没有可用 RSS（已探测 /rss、/feed 等路径均返回 404），该条由 SemiWiki 进入候选。TSMC EDA Alliance 页面有认证状态表，但截至日期仍为 2026-10-01，且不是 feed，故未写入 sources.yaml。补扫 190 条均已在此前候选中出现并已筛选过，今日不再重复写入。另有两条当日候选未达收录门槛：Intel Foundry 供电文章是对 2026 年 8 月既有白皮书的转述；NuVolta 的 PCB 接地分享偏应用笔记与产品介绍。"
+}
